@@ -1,8 +1,6 @@
 <?php
     namespace App\Controllers;
 
-    use App\Views\View;
-
     class HomeController extends Controller {
 
         /**
@@ -13,9 +11,7 @@
          * 
          */ 
         public function index($params = []) {
-            // include 'home.php';
-            //echo 'Home controller index method';
-            View::render();
+            $this->render('Home/index.html.twig');
         }
 
         /**
