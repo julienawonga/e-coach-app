@@ -10,7 +10,7 @@
          * @return void
          * 
          */ 
-        public function index($params = []) {
+        public function index($params = [], $post = []) {
             $this->render('User/index.html.twig');
         }
 
@@ -57,7 +57,9 @@
          * @return void
          * 
          */
-        public function show($params = []) {
+        public function show($params = [], $post = []) {
+            // var_dump($params);
+            // die();
             $this->render('Auth/profile.html.twig');
         }
 
