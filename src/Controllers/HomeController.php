@@ -14,73 +14,15 @@
             $this->render('Home/index.html.twig');
         }
 
-        /**
-         * 
-         * Create a new resource
-         * @param array $params
-         * @param array $post
-         * @return void
-         * 
-         */
-        public function create($params = [], $post = []) {
-            echo 'Home controller create method';
-            var_dump($params, $post);
+        public function aboutUs($params = []) {
+            $this->render('Home/about-us.html.twig');
         }
 
-        /**
-         * 
-         * Store a newly created resource in storage
-         * @param array $params
-         * @param array $post
-         * @return void
-         * 
-         */
-        public function store($params = [], $post = []) {
-            echo 'Home controller store method';
+        public function cgu($params = []) {
+            $this->render('Home/cgu.html.twig');
         }
 
-        /**
-         * 
-         * Display the specified resource
-         * @param array $params
-         * @return void
-         * 
-         */
-        public function show($params = []) {
-            echo 'Home controller show method';
-        }
-
-        /**
-         * 
-         * Show the form for editing the specified resource
-         * @param array $params
-         * @return void
-         * 
-         */
-        public function edit($params = [], $post = []) {
-            echo 'Home controller edit method';
-        }
-
-        /**
-         * 
-         * Update the specified resource in storage
-         * @param array $params
-         * @param array $post
-         * @return void
-         * 
-         */
-        public function update($params = [], $post = []) {
-            echo 'Home controller update method';
-        }
-
-        /**
-         * 
-         * Remove the specified resource from storage
-         * @param array $params
-         * @return void
-         * 
-         */
-        public function destroy($params = []) {
-            echo 'Home controller destroy method';
+        public function faqs($params = []) {
+            $this->render('Home/faqs.html.twig');
         }
     }
