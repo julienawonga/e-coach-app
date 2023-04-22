@@ -11,18 +11,18 @@
          * 
          */ 
         public function index($params = []) {
-            $this->render('Home/index.html.twig');
+            $this->render('Home/index');
         }
 
         public function aboutUs($params = []) {
-            $this->render('Home/about-us.html.twig');
+            $this->render('Home/about-us');
         }
 
         public function cgu($params = []) {
-            $this->render('Home/cgu.html.twig');
+            $this->render('Home/cgu');
         }
 
         public function faqs($params = []) {
-            $this->render('Home/faqs.html.twig');
+            $this->render('Home/faqs');
         }
     }

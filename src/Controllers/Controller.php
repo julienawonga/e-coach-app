@@ -14,11 +14,9 @@
         }
        
         public function render(?string $view = null, $params = []){
-            // $data['assets'] = Assets::css();
-            // $data['js'] = Assets::js();
-            // $data['values'] = $params;
+            $view_path = $view.'.html.twig';
             $data = array(Assets::assets(), $params);
-            $this->twig->display($view, $data);
+            $this->twig->display($view_path, $data);
         }
 
     }

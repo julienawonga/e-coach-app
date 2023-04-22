@@ -11,7 +11,7 @@
          * 
          */ 
         public function index($params = [], $post = []) {
-            $this->render('User/index.html.twig');
+            $this->render('User/index');
         }
 
         /**
@@ -23,7 +23,7 @@
          * 
          */
         public function create($params = [], $post = []) {
-            $this->render('Guest/register.html.twig');
+            $this->render('Guest/register');
         }
 
         /**
@@ -35,7 +35,7 @@
          * 
          */
         public function login($params = [], $post = []) {
-            $this->render('Guest/login.html.twig');
+            $this->render('Guest/login');
         }
 
         /**
@@ -58,9 +58,7 @@
          * 
          */
         public function show($params = [], $post = []) {
-            // var_dump($params);
-            // die();
-            $this->render('Auth/profile.html.twig');
+            $this->render('Auth/profile');
         }
 
         /**
