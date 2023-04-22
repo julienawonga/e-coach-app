@@ -3,15 +3,16 @@
 
     use App\Router\Router;
 
-    Router::get('/', 'HomeController@index');
+    Router::get('/', 'MainController@index');
 
-    Router::get('/login', 'UserController@login');
-    Router::get('/register', 'UserController@create');
+    Router::get('/login', 'MainController@login');
+    Router::get('/register', 'MainController@create');
 
-    Router::get('/user/[i:id]', 'UserController@show');
+    Router::get('/user/[i:id]', 'ClientController@show');
+    Router::get('/coach/[i:id]', 'CoachController@show');
 
-    Router::get('/about-us', 'HomeController@aboutUs');
-    Router::get('/cgu', 'HomeController@cgu');
-    Router::get('/faqs', 'HomeController@faqs');
+    Router::get('/about-us', 'MainController@aboutUs');
+    Router::get('/cgu', 'MainController@cgu');
+    Router::get('/faqs', 'MainController@faqs');
     
     Router::run();

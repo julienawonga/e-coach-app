@@ -11,7 +11,7 @@
          * 
          */ 
         public function index($params = [], $post = []) {
-            $this->render('User/index');
+            echo 'User controller index method';
         }
 
         /**
@@ -23,19 +23,7 @@
          * 
          */
         public function create($params = [], $post = []) {
-            $this->render('Guest/register');
-        }
-
-        /**
-         * 
-         * Store a newly created resource in storage
-         * @param array $params
-         * @param array $post
-         * @return void
-         * 
-         */
-        public function login($params = [], $post = []) {
-            $this->render('Guest/login');
+            echo 'User controller create method';
         }
 
         /**
