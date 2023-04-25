@@ -25,11 +25,18 @@
         <link href="{{ assets_path }}/assets/libs/@iconscout/unicons/css/line.css" type="text/css" rel="stylesheet" />
         <!-- Style Css-->
         <link href="{{ assets_path }}/assets/css/style.min.css" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css" />
+        
+        <link href="{{ assets_path }}/assets/css/customcss.css" rel="stylesheet" type="text/css" />
 
     </head>
 
     <body>
+
+        {% include 'partials/header.html.twig' %}
+
         {% block body %}{% endblock %}
+
+        {% include 'partials/footer.html.twig' %}
 
         <!-- javascript -->
         <!-- JAVASCRIPT -->

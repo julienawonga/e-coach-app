@@ -3,7 +3,7 @@
         'name' => 'julien/awonga',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'cd020eb56876eeecee949383745da3251016ab76',
+        'reference' => '8b3f70840cf5f0e6f36bfb307fe8e7957678270b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'julien/awonga' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'cd020eb56876eeecee949383745da3251016ab76',
+            'reference' => '8b3f70840cf5f0e6f36bfb307fe8e7957678270b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

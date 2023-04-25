@@ -1,0 +1,19 @@
+#topnav .navigation-menu>li.active>a, #topnav .navigation-menu>li:hover>a{
+    color: #2AABB0 !important;
+}
+
+#input-Keywords:focus{
+    border-color: #2AABB0 !important;
+}
+
+.form-select {
+    border-color: #2AABB0;
+}
+  
+#topnav .navigation-menu>li .submenu li > a:hover{
+    color: #2AABB0 !important;
+}
+
+#topnav .has-submenu.active .submenu li.active>a{
+    color: #000 !important;
+}
