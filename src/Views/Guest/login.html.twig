@@ -10,16 +10,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card form-signin p-4 rounded shadow">
-                        <form>
+                        <form action='/save' method='post'>
                             <a href="index.html"><img src="assets/images/app/logo.png" class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
                             <h5 class="mb-3 text-center">S'identifier</h5>
                         
                             <div class="form-floating mb-2">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name='email'>
                                 <label for="floatingInput">E-mail</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name='password'>
                                 <label for="floatingPassword">Mot de passe</label>
                             </div>
                         

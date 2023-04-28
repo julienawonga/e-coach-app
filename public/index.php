@@ -12,6 +12,8 @@
 
     Router::get('/user/[i:id]', 'ClientController@show');
 
+    Router::get('/save', 'UserController@store');
+
     Router::get('/coach/[i:id]', 'CoachController@show');
     Router::get('/coach/c', 'CoachController@client');
 

@@ -35,7 +35,8 @@
          * 
          */
         public function store($params = [], $post = []) {
-            echo 'User controller store method';
+            var_dump($post, $params);
+            die();
         }
 
         /**

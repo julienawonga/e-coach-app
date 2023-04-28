@@ -1,5 +1,7 @@
 <?php
     namespace App\Controllers;
+    use App\Models\Test;
+    use App\Config\DBConnection;
 
     class MainController extends Controller {
 
@@ -11,6 +13,7 @@
          * 
          */ 
         public function index($params = []) {
+          
             $this->render('Home/index');
         }
 
