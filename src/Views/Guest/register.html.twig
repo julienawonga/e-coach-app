@@ -1,72 +1,87 @@
 {% extends "./templates/base.html.twig" %}
 
 {% block body %}
-     <!-- Loader -->
-        <!-- <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+    <!-- Loader -->
+    <!-- <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
-        </div> -->
-        <!-- Loader -->
-        
-
-        <div class="back-to-home">
-            <a href="/" class="back-button btn btn-icon btn-primary"><i data-feather="arrow-left" class="icons"></i></a>
         </div>
-        
-        <section class="bg-home d-flex align-items-center position-relative" style="background: url('assets/images/shape01.png') center;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card form-signin p-4 rounded shadow">
-                            <form method="post" action="/create">
-                                <a href="index.html"><img src="assets/images/app/logo.png" class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
-                                <h5 class="mb-3 text-center">Créer un compte</h5>
-                            
-                                <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry" name="name">
-                                    <label for="floatingInput">Nom</label>
-                                </div>
+    </div> -->
+    <!-- Loader -->
 
-                                <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry" name="firstName">
-                                    <label for="floatingInput">Prénom</label>
-                                </div>
 
-                                <div class="form-floating mb-2">
-                                    <input type="email" class="form-control" id="floatingEmail" placeholder="body@example.com" name="email">
-                                    <label for="floatingEmail">E-mail</label>
-                                </div>
+    <div class="back-to-home">
+        <a href="/" class="back-button btn btn-icon btn-primary"><i data-feather="arrow-left" class="icons"></i></a>
+    </div>
 
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                                    <label for="floatingPassword">Mot de passe</label>
-                                </div>
-                            
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="cgu">
-                                    <label class="form-check-label" for="flexCheckDefault">J'accepte <a href="#" style="color: #2AABB0;">les conditions générales</a></label>
-                                </div>
-                
-                                <button class="btn  w-100" style="color: #2AABB0; background-color: #2AABB0; color: #fff;" type="submit">S'inscrire</button>
+    <section class="bg-home d-flex align-items-center position-relative"
+             style="background: url('assets/images/shape01.png') center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card form-signin p-4 rounded shadow">
+                        <form method="post" action="/create">
+                            <a href="index.html"><img src="assets/images/app/logo.png"
+                                                      class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
+                            <h5 class="mb-3 text-center">Créer un compte</h5>
 
-                                <div class="col-12 text-center mt-3">
-                                    <p class="mb-0 mt-3"><small class="text-dark me-2">Vous avez déjà un compte ?</small> <a href="auth-bs-login.html" class="text-dark fw-bold">Sign in</a></p>
-                                </div><!--end col-->
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Harry"
+                                       name="name">
+                                <label for="floatingInput">Nom</label>
+                            </div>
 
-                                <p class="mb-0 text-muted mt-3 text-center">© <script>document.write(new Date().getFullYear())</script> Landrick.</p>
-                            </form>
-                        </div>
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Harry"
+                                       name="firstName">
+                                <label for="floatingInput">Prénom</label>
+                            </div>
+
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingEmail"
+                                       placeholder="body@example.com" name="email">
+                                <label for="floatingEmail">E-mail</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                                       name="password">
+                                <label for="floatingPassword">Mot de passe</label>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault"
+                                       name="cgu">
+                                <label class="form-check-label" for="flexCheckDefault">J'accepte <a href="#"
+                                                                                                    style="color: #2AABB0;">les
+                                        conditions générales</a></label>
+                            </div>
+
+                            <button class="btn  w-100" style="color: #2AABB0; background-color: #2AABB0; color: #fff;"
+                                    type="submit">S'inscrire
+                            </button>
+
+                            <div class="col-12 text-center mt-3">
+                                <p class="mb-0 mt-3"><small class="text-dark me-2">Vous avez déjà un compte ?</small> <a
+                                            href="auth-bs-login.html" class="text-dark fw-bold">Sign in</a></p>
+                            </div><!--end col-->
+
+                            <p class="mb-0 text-muted mt-3 text-center">©
+                                <script>document.write(new Date().getFullYear())</script>
+                                Landrick.
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Switcher Start -->
-        {# <a href="javascript:void(0)" class="card switcher-btn shadow-md text-primary z-index-1 d-md-inline-flex d-none" data-bs-toggle="offcanvas" data-bs-target="#switcher-sidebar" aria-controls="offcanvasLeft">
+    <!-- Switcher Start -->
+    {# <a href="javascript:void(0)" class="card switcher-btn shadow-md text-primary z-index-1 d-md-inline-flex d-none" data-bs-toggle="offcanvas" data-bs-target="#switcher-sidebar" aria-controls="offcanvasLeft">
             <i class="mdi mdi-cog mdi-24px mdi-spin align-middle"></i>
         </a>
 
@@ -125,5 +140,5 @@
                 </ul>
             </div>
         </div> #}
-        <!-- Switcher End -->
+    <!-- Switcher End -->
 {% endblock body %}
