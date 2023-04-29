@@ -23,7 +23,8 @@
          * 
          */
         public function create($params = [], $post = []) {
-            echo 'User controller create method';
+            var_dump($post, $params);
+            die();
         }
 
         /**

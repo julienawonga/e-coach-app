@@ -5,6 +5,7 @@
     use App\Helpers\Assets;
 
     abstract class Controller {
+        
         private $loader;
         private $twig;
 

@@ -22,32 +22,32 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card form-signin p-4 rounded shadow">
-                            <form>
+                            <form method="post" action="/create">
                                 <a href="index.html"><img src="assets/images/app/logo.png" class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
                                 <h5 class="mb-3 text-center">Créer un compte</h5>
                             
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry" name="name">
                                     <label for="floatingInput">Nom</label>
                                 </div>
 
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Harry" name="firstName">
                                     <label for="floatingInput">Prénom</label>
                                 </div>
 
                                 <div class="form-floating mb-2">
-                                    <input type="email" class="form-control" id="floatingEmail" placeholder="body@example.com">
+                                    <input type="email" class="form-control" id="floatingEmail" placeholder="body@example.com" name="email">
                                     <label for="floatingEmail">E-mail</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                     <label for="floatingPassword">Mot de passe</label>
                                 </div>
                             
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="cgu">
                                     <label class="form-check-label" for="flexCheckDefault">J'accepte <a href="#" style="color: #2AABB0;">les conditions générales</a></label>
                                 </div>
                 
