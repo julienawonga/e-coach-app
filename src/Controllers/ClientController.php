@@ -5,7 +5,7 @@
     class ClientController extends Controller{
 
         public function index($params = []){
-            $this->render('Client/index');
+            $this->render('Client/profile');
         }
 
         /**

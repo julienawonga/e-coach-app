@@ -19,8 +19,8 @@ class MainController extends Controller
     {
 
         //Seed::run();
-        $users = Utilisateur::all()->toArray();
-        dd($users);
+        //$users = Utilisateur::all()->toArray();
+        //dd($users);
         $this->render('Home/index');
     }
 
