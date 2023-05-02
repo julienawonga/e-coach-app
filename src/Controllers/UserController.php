@@ -1,5 +1,6 @@
 <?php
     namespace App\Controllers;
+    use App\Models\Utilisateur;
 
     class UserController extends Controller {
 
@@ -36,8 +37,22 @@
          * 
          */
         public function store($params = [], $post = []) {
-            var_dump($post, $params);
-            die();
+            $email = $post['email'];
+            $password = $post['password'];
+
+            $user = Utilisateur::where('email', $email)->first();
+
+            // if($user == null) die('user not found'); 
+
+            if(!password_verify($password, $user->mot_de_passe)) 
+                return header('Location: /login');
+
+            // if($user->email === 'email de l\'admin' && password_verify($password, $user->mot_de_passe))
+            //    return header('Location: /admin');
+               
+            
+    
+           
         }
 
         /**

@@ -15,6 +15,8 @@
                 'debug' => true,
             ]);
             $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
         }
        
         public function render(?string $view = null, array $params = []){
