@@ -47,16 +47,16 @@
             if(!password_verify($password, $user->mot_de_passe)) 
                 return header('Location: /login');
 
-            
+
             if($user->type_utilisateur === 'client') {
                 $_SESSION['auth'] = 'client';
-                setcookie('message', 'success');
-                return $this->render('/Client/profile');
+                $_SESSION['client_id'] = $user->id;
+                header('Location: /profile');
             }
             else {
                 $_SESSION['auth'] = 'coach';
-                setcookie('message', 'success');
-                return $this->render('/Coach/profile');
+                $_SESSION['coach_id'] = $user->id;
+                header('Location: /coach/dashboard');
             }     
            
         }
@@ -104,5 +104,18 @@
          */
         public function destroy($params = []) {
             echo 'User controller destroy method';
+        }
+
+        /**
+         *
+         * Display the specified resource
+         * @param array $params
+         * @return void
+         *
+         */
+        public function logout($params = []) {
+            session_unset();
+            session_destroy();
+            header('Location: /');
         }
     }

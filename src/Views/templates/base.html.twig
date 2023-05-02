@@ -39,6 +39,12 @@
         {% include 'partials/footer.html.twig' %}
 
         <!-- javascript -->
+        <script>
+            function submitLogoutForm() {
+                console.log('logout');
+               document.querySelector("form[name='logout']").submit();
+            }
+        </script>
         <!-- ckeditor -->
         <script src="{{ assets_path }}/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
         <!-- JAVASCRIPT -->

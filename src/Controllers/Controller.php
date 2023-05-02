@@ -1,29 +1,129 @@
-<?php 
-    namespace App\Controllers;
-    use \Twig\Loader\FilesystemLoader;
-    use \Twig\Environment;
-    use App\Helpers\Assets;
+<?php
 
-    abstract class Controller {
-        
-        private $loader;
-        private $twig;
+namespace App\Controllers;
 
-        public function __construct(){
-            $this->loader = new FilesystemLoader(dirname(__DIR__).'/Views');
-            $this->twig = new Environment($this->loader, [
-                'debug' => true,
-            ]);
-            $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+use App\Helpers\Assets;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
-        }
-       
-        public function render(?string $view = null, array $params = []){
-            $view_path = $view.'.html.twig';
-            $data = json_decode(json_encode($params));
-            $assets_path = Assets::assets();
-            $this->twig->display($view_path, ['assets_path' => $assets_path, 'data'=> $data]);
-        }
+abstract class Controller
+{
 
+    private $loader;
+    private $twig;
+
+    public function __construct()
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+
+        $this->loader = new FilesystemLoader(dirname(__DIR__) . '/Views');
+        $this->twig = new Environment($this->loader, [
+            'debug' => true,
+        ]);
+        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
     }
+
+    public function render(?string $view = null, array $params = [])
+    {
+        $view_path = $view . '.html.twig';
+        $assets_path = Assets::assets();
+        if (isset($params['coach'])) {
+            $data = json_decode(json_encode($params['coach']));
+        } else if (isset($params['client'])) {
+            $data = json_decode(json_encode($params['client']));
+        } else {
+            $data = json_decode(json_encode($params));
+        }
+        $this->twig->display($view_path, ['assets_path' => $assets_path, 'data' => $data, 'session' => $_SESSION]);
+    }
+
+    /**
+     *
+     * Check if the user is authenticated
+     * @return void
+     *
+     */
+    public function checkAuth()
+    {
+        if (!$this->isAuth()) return header('Location: /login');
+    }
+
+    /**
+     *
+     * Check if the user is authenticated
+     * @return void
+     *
+     */
+    public function isAuth(): bool
+    {
+        if (!isset($_SESSION['auth'])) return false;
+        return true;
+    }
+
+    /**
+     *
+     * Check if the user is an admin
+     * @return void
+     *
+     */
+    public function checkAdmin()
+    {
+        if (!$this->isAdmin()) return header('Location: /login');
+    }
+
+    public function isAdmin(): bool
+    {
+        if (!$this->isAuth()) return false;
+        if ($_SESSION['auth'] !== 'admin') return false;
+        return true;
+    }
+
+    /**
+     *
+     * Check if the user is a coach
+     * @return void
+     *
+     */
+    public function checkCoach()
+    {
+        if (!$this->isCoach()) return header('Location: /login');
+    }
+
+    /**
+     *
+     * Check if the user is a coach
+     * @return void
+     *
+     */
+    public function isCoach(): bool
+    {
+        if (!$this->isAuth()) return false;
+        if ($_SESSION['auth'] !== 'coach') return false;
+        return true;
+    }
+
+    /**
+     *
+     * Check if the user is a client
+     * @return void
+     *
+     */
+    public function checkClient()
+    {
+        if (!$this->isClient()) return header('Location: /login');
+    }
+
+    /**
+     *
+     * Check if the user is a client
+     * @return void
+     *
+     */
+    public function isClient() : bool
+    {
+        if (!$this->isAuth()) return false;
+        if ($_SESSION['auth'] !== 'client') return false;
+        return true;
+    }
+
+}

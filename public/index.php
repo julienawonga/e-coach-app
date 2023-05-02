@@ -16,15 +16,20 @@ Router::post('/store', 'UserController@store');
 Router::post('/create', 'UserController@create');
 Router::post('/logout', 'UserController@logout');
 
-// For User
+// For Client
 Router::get('/me', 'ClientController@index');
 Router::get('/profile', 'ClientController@show');
+Router::get('/profile/settings', 'ClientController@settings');
+Router::get('/chat', 'ClientController@chat');
+Router::get('/messages', 'ClientController@messages');
+
 
 
 // For Coach
 Router::get('/coachs', 'CoachController@index');
 #Router::get('/coach/me', 'CoachController@index');
-Router::get('/coach/profile', 'CoachController@show');
+Router::get('/coach/[i:id]', 'CoachController@show');
+Router::get('/coach/dashboard', 'CoachController@dashboard');
 Router::get('/coach/profile/settings', 'CoachController@settings');
 Router::get('/coach/clients', 'CoachController@client');
 Router::get('/coach/messages', 'CoachController@messages');

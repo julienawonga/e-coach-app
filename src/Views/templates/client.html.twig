@@ -20,8 +20,7 @@
                                     <div class="col-lg-10 col-md-9">
                                         <div class="row align-items-end">
                                             <div class="col-md-7 text-md-start text-center mt-4 mt-sm-0">
-                                                <h3 class="title mb-0">{{ data.nom }} {{ data.prenom }}</h3>
-                                                <small class="text-muted h6 me-2">{{ data.coach.specialite|upper }}</small>
+                                                <h3 class="title mb-0">{{ data.utilisateur.nom }} {{ data.utilisateur.prenom }}</h3>
                                             </div><!--end col-->
                                             <div class="col-md-5 text-md-end text-center">
                                                 <ul class="list-unstyled social-icon social mb-0 mt-4">
@@ -41,7 +40,7 @@
                                                                                     class="rounded"
                                                                                     data-bs-toggle="tooltip"
                                                                                     data-bs-placement="bottom"
-                                                                                    title="Settings"><i
+                                                                                    title="Parametre"><i
                                                                     class="uil uil-cog align-middle"></i></a></li>
                                                     <li class="list-inline-item">
                                                         <form action="/logout" method="post" name="logout">
@@ -71,28 +70,11 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-12 d-lg-block d-none">
                         <div class="sidebar sticky-bar p-4 rounded shadow">
-                            <div class="widget">
-                                <h5 class="widget-title">Followers :</h5>
-                                <div class="row mt-4">
-                                    <div class="col-6 text-center">
-                                        <i data-feather="user-plus" class="fea icon-ex-md mb-1"
-                                           style="color: #2AABB0"></i>
-                                        <h5 class="mb-0">2588</h5>
-                                        <p class="text-muted mb-0">Followers</p>
-                                    </div><!--end col-->
-
-                                    <div class="col-6 text-center">
-                                        <i data-feather="users" class="fea icon-ex-md  mb-1" style="color: #2AABB0"></i>
-                                        <h5 class="mb-0">454</h5>
-                                        <p class="text-muted mb-0">Following</p>
-                                    </div><!--end col-->
-                                </div><!--end row-->
-                            </div>
 
                             <div class="widget mt-4">
                                 <ul class="list-unstyled sidebar-nav mb-0" id="navmenu-nav">
                                     <li class="navbar-item account-menu px-0">
-                                        <a href="/coach/dashboard"
+                                        <a href="/profile"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4"
 
                                         >
@@ -102,23 +84,7 @@
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/coach/clients"
-                                           class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
-                                            <span class="h4 mb-0"><i class="uil uil-users-alt"></i></span>
-                                            <h6 class="mb-0 ms-2">Clients</h6>
-                                        </a>
-                                    </li>
-
-                                    <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="account-works.html"
-                                           class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
-                                            <span class="h4 mb-0"><i class="uil uil-file"></i></span>
-                                            <h6 class="mb-0 ms-2">Portfolio</h6>
-                                        </a>
-                                    </li>
-
-                                    <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/coach/chat"
+                                        <a href="/chat"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
                                             <span class="h4 mb-0"><i class="uil uil-comment"></i></span>
                                             <h6 class="mb-0 ms-2">Chat</h6>
@@ -126,7 +92,7 @@
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/coach/messages"
+                                        <a href="/messages"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
                                             <span class="h4 mb-0"><i class="uil uil-envelope-star"></i></span>
                                             <h6 class="mb-0 ms-2">Messages</h6>
@@ -142,7 +108,7 @@
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/coach/profile/settings"
+                                        <a href="/profile/settings"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
                                             <span class="h4 mb-0"><i class="uil uil-setting"></i></span>
                                             <h6 class="mb-0 ms-2">Parametres</h6>
@@ -150,34 +116,13 @@
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="auth-login-three.html"
+                                        <a href="/"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
                                             <span class="h4 mb-0"><i class="uil uil-dashboard"></i></span>
                                             <h6 class="mb-0 ms-2">Logout</h6>
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
-
-                            <div class="widget mt-4 pt-2">
-                                <h5 class="widget-title">Follow me :</h5>
-                                <ul class="list-unstyled social-icon social mb-0 mt-4">
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="instagram" class="fea icon-sm fea-social"></i></a>
-                                    </li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="github" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                                    data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
-                                </ul><!--end icon-->
                             </div>
                         </div>
                     </div><!--end col-->

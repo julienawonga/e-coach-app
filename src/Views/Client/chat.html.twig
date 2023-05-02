@@ -1,0 +1,191 @@
+{% extends './templates/client.html.twig' %}
+{% block secondary %}
+<div class="col-lg-8 col-12">
+    <div class="card chat chat-person border-0 shadow rounded mt-4">
+        <div class="d-flex justify-content-between border-bottom p-4">
+            <div class="d-flex">
+                <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                <div class="overflow-hidden ms-3">
+                    <a href="#" class="text-dark mb-0 h6 d-block text-truncate">Cristino Murphy</a>
+                    <small class="text-muted"><i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i> Online</small>
+                </div>
+            </div>
+        </div>
+
+        <ul class="p-4 list-unstyled mb-0 chat overflow-scroll" data-simplebar style="background: url('{{ assests_path }}/assets/images/account/bg-chat.png') center center; max-height: 500px;">
+            <li>
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative">
+                            <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Hey Calvin</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>59 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="chat-right">
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative chat-user-image">
+                            <img src="{{ assests_path }}/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Hello Cristino</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>45 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="chat-right">
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative chat-user-image">
+                            <img src="{{ assests_path }}/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">How can i help you?</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>44 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative">
+                            <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Nice to meet you</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>42 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative">
+                            <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Hope you are doing fine?</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>40 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="chat-right">
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative chat-user-image">
+                            <img src="{{ assests_path }}/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">I'm good thanks for asking</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>45 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative">
+                            <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">I am intrested to know more about your prices and services you offer</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>35 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="chat-right">
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative chat-user-image">
+                            <img src="{{ assests_path }}/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Sure please check below link to find more useful information <a href="https://1.envato.market/landrick" target="_blank" class="text-primary">http://shreethemes.in/landrick/</a></p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>25 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative">
+                            <img src="{{ assests_path }}/assets/images/client/02.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Thank you 😊</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>20 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="chat-right">
+                <div class="d-inline-block">
+                    <div class="d-flex chat-type mb-3">
+                        <div class="position-relative chat-user-image">
+                            <img src="{{ assests_path }}/assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <i class="mdi mdi-checkbox-blank-circle text-success on-off align-text-bottom"></i>
+                        </div>
+
+                        <div class="chat-msg" style="max-width: 500px;">
+                            <p class="text-muted small msg px-3 py-2 bg-light rounded mb-1">Welcome</p>
+                            <small class="text-muted msg-time"><i class="uil uil-clock-nine me-1"></i>18 min ago</small>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="p-2 rounded-bottom shadow">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Message...">
+                </div>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-icon btn-primary"><i class="uil uil-message"></i></a>
+                    <a href="#" class="btn btn-icon btn-primary"><i class="uil uil-smile"></i></a>
+                    <a href="#" class="btn btn-icon btn-primary"><i class="uil uil-paperclip"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--end col-->
+{% endblock%}
