@@ -25,6 +25,7 @@ class Seed
             $utilisateur->nom = $faker->lastName;
             $utilisateur->prenom = $faker->firstName;
             $utilisateur->email = $faker->email;
+            $utilisateur->est_admin = $faker->randomElement([0, 1]);
             $utilisateur->mot_de_passe = password_hash('password', PASSWORD_DEFAULT, ['cost' => 10]);
             $utilisateur->type_utilisateur = $faker->randomElement(['client', 'coach']);
             $utilisateur->date_naissance = $faker->date();
