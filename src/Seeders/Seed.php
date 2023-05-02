@@ -2,6 +2,8 @@
 
 namespace App\Seeders;
 
+use App\Models\Coach;
+use App\Models\Client;
 use App\Models\Utilisateur;
 use Faker\Factory as Faker;
 
@@ -28,6 +30,26 @@ class Seed
             $utilisateur->date_naissance = $faker->date();
             $utilisateur->sex = $faker->randomElement(['m', 'f']);
             $utilisateur->save();
+        }
+        $utilisateurs = Utilisateur::all();
+        $i = 0; $j = 0;
+        foreach ($utilisateurs as $utilisateur) {
+            if ($utilisateur->type_utilisateur == 'client') {
+                $client = new Client();
+                $client->id = $i;
+                $client->id_utilisateur = $utilisateur->id;
+                $client->objectifs = $faker->randomElement(['perte de poids', 'prise de masse', 'remise en forme']);
+                $client->niveau_experience = $faker->randomElement(['debutant', 'intermediaire', 'confirme']);
+                $client->save();
+            } else {
+               $coach = new Coach();
+                $coach->id = $j;
+                $coach->id_utilisateur = $utilisateur->id;
+                $coach->specialite = $faker->randomElement(['perte de poids', 'prise de masse', 'remise en forme']);
+                $coach->description = $faker->text;
+                $coach->save();
+            }
+            $i++; $j++;
         }
     }
 }

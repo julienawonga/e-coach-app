@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
+use App\Models\Utilisateur;
+use App\Models\Seance;
 
 class Coach extends Model
 {
     protected $table = "coachs";
 
+    protected $fillable = ['id_utilisateur', 'specialite', 'description'];
     public function utilisateur()
     {
         return $this->belongsTo(Utilisateur::class, "id_utilisateur");
