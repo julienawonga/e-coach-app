@@ -29,3 +29,10 @@
 .ps-5:focus{
     border-color: #2AABB0 !important;
 }
+.form-select{
+    border-color: #2AABB0 !important;
+}
+.form-select:focus{
+    outline-color: #0a0c0d;
+}
+

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Client;
 use App\Models\Utilisateur;
 use App\Seeders\Seed;
 
@@ -21,7 +22,8 @@ class MainController extends Controller
         //Seed::run();
         //$users = Utilisateur::all()->toArray();
         //dd($users);
-        $this->render('Home/index');
+        dd(Utilisateur::with('client')->get());
+        //$this->render('Home/index');
     }
 
     /**
