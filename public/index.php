@@ -29,6 +29,7 @@ Router::get('/coach/profile/settings', 'CoachController@settings');
 Router::get('/coach/clients', 'CoachController@client');
 Router::get('/coach/messages', 'CoachController@messages');
 Router::get('/coach/chat', 'CoachController@messages');
+Router::get('/client/profile', 'ClientController@show');
 
 // Others
 Router::get('/about-us', 'MainController@aboutUs');

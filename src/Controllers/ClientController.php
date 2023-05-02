@@ -16,6 +16,6 @@
          * 
          */
         public function show(){
-            $this->render('Coach/profile');
+            $this->render('Client/profile');
         }
     }

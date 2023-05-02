@@ -6,7 +6,6 @@ CREATE TABLE utilisateurs
     email            VARCHAR(255),
     mot_de_passe     VARCHAR(255),
     type_utilisateur VARCHAR(255),
-    est_admin        INT,
     date_naissance   DATE,
     sex              VARCHAR(255),
     created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

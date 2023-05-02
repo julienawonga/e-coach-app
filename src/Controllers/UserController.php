@@ -47,11 +47,15 @@
             if(!password_verify($password, $user->mot_de_passe)) 
                 return header('Location: /login');
 
-            // if($user->email === 'email de l\'admin' && password_verify($password, $user->mot_de_passe))
-            //    return header('Location: /admin');
-               
             
-    
+            if($user->type_utilisateur === 'client') {
+                $_SESSION['auth'] = 'client';
+                return header('Location: /client/profile?success=true');
+            }
+            else {
+                $_SESSION['auth'] = 'coach';
+                return header('Location: /coach/profile?sucess=true');
+            }     
            
         }
 
