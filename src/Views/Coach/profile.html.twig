@@ -2,6 +2,9 @@
 {% block secondary %}
 
     <div class="col-lg-8 col-12">
+        <?php if(isset($_COOKIES['message'])): ?>
+                <div class="alert alert-success">Vous êtes connectés</div>
+        <?php endif ?>
         <div class="border-bottom pb-4">
             <h5>Krista Joseph</h5>
             <p class="text-muted mb-0">I have started my career as a trainee and prove my self and achieve

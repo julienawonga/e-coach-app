@@ -30,7 +30,7 @@
 
         /**
          * 
-         * Store a newly created resource in storage
+         * Store a newly created resource in storag$
          * @param array $params
          * @param array $post
          * @return void
@@ -50,11 +50,13 @@
             
             if($user->type_utilisateur === 'client') {
                 $_SESSION['auth'] = 'client';
-                return header('Location: /client/profile?success=true');
+                setcookie('message', 'success');
+                return $this->render('/Client/profile');
             }
             else {
                 $_SESSION['auth'] = 'coach';
-                return header('Location: /coach/profile?sucess=true');
+                setcookie('message', 'success');
+                return $this->render('/Coach/profile');
             }     
            
         }

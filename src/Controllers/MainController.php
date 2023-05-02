@@ -19,7 +19,7 @@ class MainController extends Controller
     public function index($params = [])
     {
 
-        //Seed::run();
+        // Seed::run();
         //$users = Utilisateur::all()->toArray();
         //dd($users);
         dd(Utilisateur::first()->with('client')->get());
