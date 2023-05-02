@@ -22,7 +22,7 @@ class MainController extends Controller
         //Seed::run();
         //$users = Utilisateur::all()->toArray();
         //dd($users);
-        dd(Utilisateur::with('client')->get());
+        dd(Utilisateur::first()->with('client')->get());
         //$this->render('Home/index');
     }
 
