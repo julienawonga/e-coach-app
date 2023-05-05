@@ -17,6 +17,7 @@
         "vlucas/phpdotenv": "^5.5",
         "illuminate/database": "8.83",
         "fzaninotto/faker": "^1.9",
-        "symfony/var-dumper": "^5.4"
+        "symfony/var-dumper": "^5.4",
+        "twig/intl-extra": "^3.6"
     }
 }

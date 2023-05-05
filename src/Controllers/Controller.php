@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Helpers\Assets;
 use Twig\Environment;
+use Twig\Extra\Intl\IntlExtension;
 use Twig\Loader\FilesystemLoader;
 
 abstract class Controller
@@ -21,19 +22,14 @@ abstract class Controller
             'debug' => true,
         ]);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+        $this->twig->addExtension(new IntlExtension());
     }
 
     public function render(?string $view = null, array $params = [])
     {
         $view_path = $view . '.html.twig';
         $assets_path = Assets::assets();
-        if (isset($params['coach'])) {
-            $data = json_decode(json_encode($params['coach']));
-        } else if (isset($params['client'])) {
-            $data = json_decode(json_encode($params['client']));
-        } else {
-            $data = json_decode(json_encode($params));
-        }
+        $data = $params;
         $this->twig->display($view_path, ['assets_path' => $assets_path, 'data' => $data, 'session' => $_SESSION]);
     }
 

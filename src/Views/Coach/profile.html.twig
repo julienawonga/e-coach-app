@@ -3,7 +3,7 @@
 
     <div class="col-lg-8 col-12">
         <div class="border-bottom pb-4">
-            <h5>{{ data.nom }} {{ data.prenom }}</h5>
+            <h5>{{ data.coach.nom }} {{ data.coach.prenom }}</h5>
             <p class="text-muted mb-0">{{ data.coach.description }}</p>
         </div>
 
@@ -13,40 +13,24 @@
                     <h5>Détails personnels :</h5>
                     <div class="mt-4">
                         <div class="d-flex align-items-center mt-3">
-                            <i data-feather="briefcase" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Formation :</h6>
-                                <a href="javascript:void(0)" class="text-muted">html</a>, <a
-                                        href="javascript:void(0)" class="text-muted">css</a>, <a
-                                        href="javascript:void(0)" class="text-muted">js</a>, <a
-                                        href="javascript:void(0)" class="text-muted">mysql</a>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center mt-3">
-                            <i data-feather="bookmark" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Skills :</h6>
-                                <a href="javascript:void(0)" class="text-muted">html</a>, <a
-                                        href="javascript:void(0)" class="text-muted">css</a>, <a
-                                        href="javascript:void(0)" class="text-muted">js</a>, <a
-                                        href="javascript:void(0)" class="text-muted">mysql</a>
-                            </div>
+                            <i data-feather="dollar-sign" class="fea icon-ex-md text-muted me-3"></i>
+                            <h6 style="color: #2AABB0" class=" mb-0">Tarif : </h6>
+                            <a href="javascript:void(0)" class="text-muted"> {{ data.coach.tarif_horaire }} MAD</a>
                         </div>
                         <div class="d-flex align-items-center mt-3">
                             <i data-feather="italic" class="fea icon-ex-md text-muted me-3"></i>
                             <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Language :</h6>
-                                <a href="javascript:void(0)" class="text-muted">English</a>, <a
-                                        href="javascript:void(0)" class="text-muted">Japanese</a>, <a
-                                        href="javascript:void(0)" class="text-muted">Chinese</a>
+                                <h6 style="color: #2AABB0" class=" mb-0">Langues :</h6>
+                                {% for lng in data.langues %}
+                                    <a href="javascript:void(0)" class="text-muted">{{ lng.langue }}</a>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="d-flex align-items-center mt-3">
                             <i data-feather="map-pin" class="fea icon-ex-md text-muted me-3"></i>
                             <div class="flex-1">
                                 <h6 style="color: #2AABB0" class=" mb-0">Location :</h6>
-                                <a href="javascript:void(0)" class="text-muted">Beijing, China</a>
+                                <a href="javascript:void(0)" class="text-muted">{{ data.coach.localisation }}</a>
                             </div>
                         </div>
                     </div>
@@ -54,42 +38,21 @@
 
                 <div class="col-md-6 mt-4 pt-2 pt-sm-0">
                     <h5>Expériences :</h5>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Circleci.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">Senior Web Developer</h4>
-                            <p class="text-muted mb-0">3 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">CircleCi</a>
-                                @London, UK</p>
+                    {% for experience in data.experiences %}
+                        <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
+                            <div class="flex-1 content ms-3">
+                                <h5 class="title mb-0">{{ experience.titre }}</h5>
+                                <p class="text-muted mb-0">{{ experience.date_debut|format_datetime(pattern="MM'/'y") }}
+                                    - {{ experience.date_fin|format_datetime(pattern="MM'/'y") }}</p>
+                                <p class="text-muted mb-0"><a href="javascript:void(0)"
+                                                              class="read-more">{{ experience.entreprise }}</a>
+                                    @{{ experience.ville }}, {{ experience.pays }}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Codepen.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">Web Designer</h4>
-                            <p class="text-muted mb-0">2 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">Codepen</a>
-                                @Washington D.C, USA</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Gitlab.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">UI Designer</h4>
-                            <p class="text-muted mb-0">2 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)"
-                                                          class="read-more">Gitlab</a> @Perth, Australia</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div><!--end col-->
             </div><!--end row-->
         </div>
     </div><!--end col-->
 
-{% endblock  %}
+{% endblock %}

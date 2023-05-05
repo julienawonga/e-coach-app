@@ -6,7 +6,7 @@ class Utilisateur extends Model
 {
     protected $table = "utilisateurs";
 
-    protected $fillable = ['nom', 'prenom', 'email', 'mot_de_passe'];
+    protected $fillable = ['nom', 'prenom', 'email', 'mot_de_passe', 'profil_image'];
 
     public function client()
     {

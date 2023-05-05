@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Avis;
 use App\Models\Client;
 use App\Models\Utilisateur;
 use App\Seeders\Seed;
@@ -18,12 +19,15 @@ class MainController extends Controller
      */
     public function index($params = [])
     {
-
         //Seed::run();
-        //$users = Utilisateur::all()->toArray();
-        //dd($users);
-        dd(Utilisateur::first()->with('client')->get());
-        //$this->render('Home/index');
+        $coachs = Utilisateur::where('type_utilisateur', 'coach')
+                            ->with('coach')
+                            ->select('id', 'nom', 'prenom', 'sex', 'profil_image')
+                            ->take(4)
+                            ->get()
+                            ->toArray();
+
+        $this->render('Home/index', compact('coachs'));
     }
 
     /**

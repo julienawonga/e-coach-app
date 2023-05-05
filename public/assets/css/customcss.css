@@ -35,4 +35,6 @@
 .form-select:focus{
     outline-color: #0a0c0d;
 }
-
+.avatar.avatar-large{
+    border: 5px solid #2AABB0 !important;
+}

@@ -1,56 +1,66 @@
 {% block header %}
-      <!-- Navbar STart -->
-        <header id="topnav" class="defaultscroll sticky">
-            <div class="container">
-                <!-- Logo container-->
-                <a class="logo" href="/">
-                    <img src="assets/images/app/logo.png" height="24" class="logo-light-mode" alt="">
-                </a>
-                
-                <!-- Logo End -->
+    <!-- Navbar STart -->
+    <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+            <!-- Logo container-->
+            <a class="logo" href="/">
+                <img src="assets/images/app/logo.png" height="24" class="logo-light-mode" alt="">
+            </a>
 
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
+            <!-- Logo End -->
+
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
                 </div>
+            </div>
 
-                <!--Login button Start-->
-                <ul class="navigation-menu buy-button  list-inline mb-0">
-                    <li class="has-submenu parent-menu-item">
-                        {# <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> #}
-                         <a class="btn btn-icon btn-pills" style="color: #2AABB0"><i data-feather="user" class="fea icon-md"></i></a>
-                        {# </a> #}
-                        <ul class="submenu">
-                            <li><a href="/login" class="sub-menu-item">Profile</a></li>
-                            <li><a href="/login" class="sub-menu-item">Deconexion</a></li>
-                            <li><a href="/register" class="sub-menu-item">Register</a></li>
-                        </ul>
+            <!--Login button Start-->
+            <ul class="navigation-menu buy-button  list-inline mb-0">
+                <li class="has-submenu parent-menu-item">
+                    <a class="btn btn-icon btn-pills" style="color: #2AABB0"><i data-feather="user" class="fea icon-md"></i></a>
+                    <ul class="submenu">
+                        {% if session.auth == "coach" %}
+                            <li><a href="/coach/dashboard" class="sub-menu-item">Profile</a></li>
+                        <form action="/logout" method="post" name="logout">
+                            <li><a href="#" onclick="submitLogoutForm()" class="sub-menu-item">Deconexion</a></li>
+                        </form>
+                        {% elseif session.auth == "client" %}
+                            <li><a href="/profile" class="sub-menu-item">Profile</a></li>
+                             <form action="/logout" method="post" name="logout">
+                                 <li><a href="#" onclick="submitLogoutForm()" class="sub-menu-item">Deconexion</a></li>
+                             </form>
+                        {% else %}
+                            <li><a href="/login" class="sub-menu-item">Conexion</a></li>
+                            <li><a href="/register" class="sub-menu-item">Inscription</a></li>
+                        {% endif %}
 
-                    </li>
+                    </ul>
 
-                </ul>
-                <!--Login button End-->
-        
-                <div id="navigation">
-                    <!-- Navigation Menu-->   
-                    <ul class="navigation-menu">
-                        <li><a href="/"  class="sub-menu-item">Acceuil</a></li>
-                        <li><a href="/coachs"  class="sub-menu-item">Nos Coachs</a></li>
-                        <li><a href="/about-us"  class="sub-menu-item">A propos</a></li>
-                        <li><a href="/contact"  class="sub-menu-item">Contact</a></li>
-                    </ul><!--end navigation menu-->
-                </div><!--end navigation-->
-            </div><!--end container-->
-        </header><!--end header-->
-        <!-- Navbar End -->
+                </li>
+
+            </ul>
+            <!--Login button End-->
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a href="/" class="sub-menu-item">Acceuil</a></li>
+                    <li><a href="/coachs" class="sub-menu-item">Nos Coachs</a></li>
+                    <li><a href="/about-us" class="sub-menu-item">A propos</a></li>
+                    <li><a href="/contact" class="sub-menu-item">Contact</a></li>
+                </ul><!--end navigation menu-->
+            </div><!--end navigation-->
+        </div><!--end container-->
+    </header><!--end header-->
+    <!-- Navbar End -->
 {% endblock %}

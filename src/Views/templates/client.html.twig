@@ -13,23 +13,17 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-lg-2 col-md-3 text-md-start text-center">
-                                        <img src="{{ assets_path }}/assets/images/client/05.jpg"
+                                        <img src="{{ data.client.utilisateur.profil_image }}"
                                              class="avatar avatar-large rounded-circle shadow d-block mx-auto" alt="">
                                     </div><!--end col-->
 
                                     <div class="col-lg-10 col-md-9">
                                         <div class="row align-items-end">
                                             <div class="col-md-7 text-md-start text-center mt-4 mt-sm-0">
-                                                <h3 class="title mb-0">{{ data.utilisateur.nom }} {{ data.utilisateur.prenom }}</h3>
+                                                <h3 class="title mb-0">{{ data.client.utilisateur.nom }} {{ data.client.utilisateur.prenom }}</h3>
                                             </div><!--end col-->
                                             <div class="col-md-5 text-md-end text-center">
                                                 <ul class="list-unstyled social-icon social mb-0 mt-4">
-                                                    <li class="list-inline-item"><a href="javascript:void(0)"
-                                                                                    class="rounded"
-                                                                                    data-bs-toggle="tooltip"
-                                                                                    data-bs-placement="bottom"
-                                                                                    title="Messages"><i
-                                                                    class="uil uil-comment align-middle"></i></a></li>
                                                     <li class="list-inline-item"><a href="javascript:void(0)"
                                                                                     class="rounded"
                                                                                     data-bs-toggle="tooltip"
@@ -84,18 +78,18 @@
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/chat"
+                                        <a href="/reserver"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
-                                            <span class="h4 mb-0"><i class="uil uil-comment"></i></span>
-                                            <h6 class="mb-0 ms-2">Chat</h6>
+                                            <span class="h4 mb-0"><i class="uil uil-schedule "></i></span>
+                                            <h6 class="mb-0 ms-2">Nouvelle</h6>
                                         </a>
                                     </li>
 
                                     <li class="navbar-item account-menu px-0 mt-2">
-                                        <a href="/messages"
+                                        <a href="/c/coachs"
                                            class="navbar-link d-flex rounded shadow align-items-center py-2 px-4">
-                                            <span class="h4 mb-0"><i class="uil uil-envelope-star"></i></span>
-                                            <h6 class="mb-0 ms-2">Messages</h6>
+                                            <span class="h4 mb-0"><i class="uil  uil-users-alt "></i></span>
+                                            <h6 class="mb-0 ms-2">Mes Coachs</h6>
                                         </a>
                                     </li>
 

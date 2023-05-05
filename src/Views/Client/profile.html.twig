@@ -1,6 +1,5 @@
 {% extends "./templates/client.html.twig" %}
 {% block secondary %}
-
     <div class="col-lg-8 col-12">
         <div class="border-bottom pb-4">
             <h5>{{ data.utilisateur.nom }} {{ data.utilisateur.prenom }}</h5>
@@ -8,84 +7,34 @@
 
         <div class="border-bottom pb-4">
             <div class="row">
-                <div class="col-md-6 mt-4">
-                    <h5>Détails personnels :</h5>
-                    <div class="mt-4">
-                        <div class="d-flex align-items-center mt-3">
-                            <i data-feather="briefcase" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Formation :</h6>
-                                <a href="javascript:void(0)" class="text-muted">html</a>, <a
-                                        href="javascript:void(0)" class="text-muted">css</a>, <a
-                                        href="javascript:void(0)" class="text-muted">js</a>, <a
-                                        href="javascript:void(0)" class="text-muted">mysql</a>
+                <div class="row-md-6 mt-4 pt-2 pt-sm-0">
+                    <h5>Mes séances :</h5>
+                    {% for seances in data.client.coachs %}
+                        <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
+                            <img src="{{ seances.utilisateur.profil_image }}" class="avatar rounded-lg avatar-ex-md" alt="">
+                            <div class="flex-1 content ms-3">
+                                <h4 class="title mb-0">{{ seances.utilisateur.nom|capitalize }} {{ seances.utilisateur.prenom|capitalize }}</h4>
+                                <p class="text-muted mb-0">{{ seances.specialite|capitalize}}</p>
+                                <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">{{ seances.pivot.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a")}}</a>
+                                 <br/> {{ seances.pivot.tarif }} MAD</p>
+                                 {% if seances.pivot.statut == "accepte" %}
+                                    <p class="text-green-500 mb-0"> {{ seances.pivot.meet_link }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex">
+                            {% if seances.pivot.statut == "refuse" %}
+                                <span class="badge bg-danger rounded-pill"> Refuse </span>
+                            {% elseif seances.pivot.statut == "attente" %}
+                               <span class="badge bg-danger rounded-pill">En Attente</span>
+                            {% elseif seances.pivot.statut == "accepte" %}
+                               <span class="badge bg-success rounded-pill">Accepte</span>
+                               {% if seances.pivot.est_termine == 1 %}
+                                    <span class="badge bg-primary rounded-pill">Termine</span>      
+                               {% endif %}
+                            {% endif %}
                             </div>
                         </div>
-
-                        <div class="d-flex align-items-center mt-3">
-                            <i data-feather="bookmark" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Skills :</h6>
-                                <a href="javascript:void(0)" class="text-muted">html</a>, <a
-                                        href="javascript:void(0)" class="text-muted">css</a>, <a
-                                        href="javascript:void(0)" class="text-muted">js</a>, <a
-                                        href="javascript:void(0)" class="text-muted">mysql</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mt-3">
-                            <i data-feather="italic" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Language :</h6>
-                                <a href="javascript:void(0)" class="text-muted">English</a>, <a
-                                        href="javascript:void(0)" class="text-muted">Japanese</a>, <a
-                                        href="javascript:void(0)" class="text-muted">Chinese</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mt-3">
-                            <i data-feather="map-pin" class="fea icon-ex-md text-muted me-3"></i>
-                            <div class="flex-1">
-                                <h6 style="color: #2AABB0" class=" mb-0">Location :</h6>
-                                <a href="javascript:void(0)" class="text-muted">Beijing, China</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-6 mt-4 pt-2 pt-sm-0">
-                    <h5>Expériences :</h5>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Circleci.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">Senior Web Developer</h4>
-                            <p class="text-muted mb-0">3 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">CircleCi</a>
-                                @London, UK</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Codepen.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">Web Designer</h4>
-                            <p class="text-muted mb-0">2 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">Codepen</a>
-                                @Washington D.C, USA</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                        <img src="{{ assets_path }}/assets/images/job/Gitlab.svg"
-                             class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 content ms-3">
-                            <h4 class="title mb-0">UI Designer</h4>
-                            <p class="text-muted mb-0">2 Years Experience</p>
-                            <p class="text-muted mb-0"><a href="javascript:void(0)"
-                                                          class="read-more">Gitlab</a> @Perth, Australia</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div><!--end col-->
             </div><!--end row-->
         </div>

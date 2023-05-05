@@ -1,0 +1,21 @@
+{% extends './templates/client.html.twig' %}
+{% block secondary %}
+<div class="col-lg-8 col-12">
+    <div class="row">
+        <div class="row-md-6 mt-4 pt-2 pt-sm-0">
+            <h1 class="h3 mb-3">Réserver un créneau avec</h1>
+            <img src="{{ data.coach.utilisateur.profil_image }}" alt="Photo de {{ data.coach.utilisateur.nom }} {{ data.coach.utilisateur.prenom }}" class="img-fluid rounded-circle" width="100px">
+            <span class="h5 ml-8">{{ data.coach.utilisateur.nom }} {{ data.coach.utilisateur.prenom }}</span>
+            <form action="/reservation/{{data.coach.utilisateur.id}}" method="post">
+                <div class="form-group">
+                    <label for="meeting-time" class="h5" class="">Choisissez une date</label>
+                    <div class="input-group">
+                    <input class="form-control"  class="d-block" type="datetime-local" id="meeting-time" name="meeting-time">
+                    <button type="submit" class="btn" style="background-color: #2aa; color: #fff">Réserver</button>
+                    </div>
+                </div>
+             </form>
+        </div>
+    </div><!--end row-->
+</div><!--end col-->
+{% endblock%}

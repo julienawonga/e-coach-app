@@ -15,10 +15,12 @@
          * @return void
          * 
          */
-        public function show(array $params){
+        public function profile(array $params){
             $this->checkClient();
+
             (int)$id = $_SESSION['client_id'];
-            $client = Client::where('id_utilisateur', $id)->with('utilisateur')->first();
+            $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
+            //dd($client->toArray());
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
             $this->render('Client/profile', compact('client'));
@@ -44,10 +46,15 @@
          * @return void
          *
          */
-        public function  chat()
+        public function coachs()
         {
             $this->checkClient();
-            $this->render('Client/chat');
+            
+            (int)$id = $_SESSION['client_id'];
+            $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
+            if(!$client) return header('Location: /login');
+            $client = $client->toArray();
+            $this->render('Client/coachs', compact('client'));
         }
 
         /**
@@ -57,9 +64,16 @@
          * @return void
          *
          */
-        public function messages()
+        public function reserver(array $params)
         {
             $this->checkClient();
-            $this->render('Client/messages');
+            (int)$id_client = $_SESSION['client_id'];
+            (int)$id_coach = $params['id'];
+
+            $client = Client::where('id_utilisateur', $id_client)->with('utilisateur')->first()->toArray();
+            $coach = Coach::where('id_utilisateur', $id_coach)->with('utilisateur')->first()->toArray();
+
+           
+            $this->render('Client/reserver', compact('coach', 'client'));
         }
     }

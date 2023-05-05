@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Clients_Coachs extends Model
+class ClientsCoachs extends Model
 {
     protected $table = "clients_coachs";
 
