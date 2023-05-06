@@ -25,7 +25,7 @@
                             {% if seances.pivot.statut == "refuse" %}
                                 <span class="badge bg-danger rounded-pill"> Refuse </span>
                             {% elseif seances.pivot.statut == "attente" %}
-                               <span class="badge bg-danger rounded-pill">En Attente</span>
+                               <span class="badge bg-info rounded-pill">En Attente</span>
                             {% elseif seances.pivot.statut == "accepte" %}
                                <span class="badge bg-success rounded-pill">Accepte</span>
                                {% if seances.pivot.est_termine == 1 %}

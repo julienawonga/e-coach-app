@@ -20,7 +20,6 @@
 
             (int)$id = $_SESSION['client_id'];
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
-            //dd($client->toArray());
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
             $this->render('Client/profile', compact('client'));

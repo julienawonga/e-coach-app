@@ -22,14 +22,13 @@ Router::post('/reservation/[i:id]', 'ReservationController@store');
 Router::get('/profile', 'ClientController@profile');
 Router::get('/profile/settings', 'ClientController@settings');
 Router::get('/c/coachs', 'ClientController@coachs');
-Router::get('/reserver/[i:id]', 'ClientController@reserver');
+Router::get('/reserver', 'CoachController@index');
 
 
 
 
 // For Coach
 Router::get('/coachs', 'CoachController@index');
-#Router::get('/coach/me', 'CoachController@index');
 Router::get('/coach/[i:id]', 'CoachController@show');
 Router::get('/coach/dashboard', 'CoachController@dashboard');
 Router::get('/coach/profile/settings', 'CoachController@settings');
@@ -41,5 +40,6 @@ Router::get('/client/profile', 'ClientController@show');
 Router::get('/about-us', 'MainController@aboutUs');
 Router::get('/cgu', 'MainController@cgu');
 Router::get('/faqs', 'MainController@faqs');
+Router::get('/passwordreset', 'MainController@passwordreset');
 
 Router::run();

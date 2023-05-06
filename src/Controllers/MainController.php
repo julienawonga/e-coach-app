@@ -70,4 +70,9 @@ class MainController extends Controller
     {
         $this->render('Home/faqs');
     }
+
+    public function passwordreset($params = [])
+    {
+        $this->render('Guest/passwordreset');
+    }
 }

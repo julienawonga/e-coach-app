@@ -12,7 +12,7 @@
                         <div class="d-flex ms-2">
                             <img src="{{ seance.client.utilisateur.profil_image }}" class="avatar avatar-md-sm rounded-pill shadow" alt="">
                             <div class="flex-1 ms-3">
-                                <span class="badge bg-success rounded-pill">{{ seance.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a") }}</span>
+                                <span class="badge bg-secondary rounded-pill">{{ seance.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a") }}</span>
                                 {% if seance.est_termine == 1 %}
                                     <span class="badge bg-success rounded-pill">Termine</span>
                                 {# {% else %}
@@ -21,7 +21,7 @@
 
 
                                  {% if seance.statut== "attente" %}
-                                    <span class="badge bg-danger rounded-pill">En Attente</span>
+                                    <span class="badge bg-info rounded-pill">En Attente</span>
                                     {% elseif seance.statut== "accepte" %}
                                     <span class="badge bg-success rounded-pill">Accepte</span>
                                     {% else %}
