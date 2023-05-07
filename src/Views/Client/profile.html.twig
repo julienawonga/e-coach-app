@@ -9,32 +9,38 @@
             <div class="row">
                 <div class="row-md-6 mt-4 pt-2 pt-sm-0">
                     <h5>Mes séances :</h5>
-                    {% for seances in data.client.coachs %}
-                        <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
-                            <img src="{{ seances.utilisateur.profil_image }}" class="avatar rounded-lg avatar-ex-md" alt="">
-                            <div class="flex-1 content ms-3">
-                                <h4 class="title mb-0">{{ seances.utilisateur.nom|capitalize }} {{ seances.utilisateur.prenom|capitalize }}</h4>
-                                <p class="text-muted mb-0">{{ seances.specialite|capitalize}}</p>
-                                <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">{{ seances.pivot.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a")}}</a>
-                                 <br/> {{ seances.pivot.tarif }} MAD</p>
-                                 {% if seances.pivot.statut == "accepte" %}
-                                    <p class="text-green-500 mb-0"> {{ seances.pivot.meet_link }}</p>
+                    {% if data.client.coachs is not empty %}
+                        {% for seances in data.client.coachs %}
+                            <div class="d-flex features feature-primary key-feature align-items-center p-3 rounded shadow mt-4">
+                                <img src="{{ seances.utilisateur.profil_image }}" class="avatar rounded-lg avatar-ex-md" alt="">
+                                <div class="flex-1 content ms-3">
+                                    <h4 class="title mb-0">{{ seances.utilisateur.nom|capitalize }} {{ seances.utilisateur.prenom|capitalize }}</h4>
+                                    <p class="text-muted mb-0">{{ seances.specialite|capitalize}}</p>
+                                    <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">{{ seances.pivot.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a")}}</a>
+                                    <br/> {{ seances.pivot.tarif }} MAD</p>
+                                    {% if seances.pivot.statut == "accepte" %}
+                                        <p class="text-green-500 mb-0"> {{ seances.pivot.meet_link }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="d-flex">
+                                {% if seances.pivot.statut == "refuse" %}
+                                    <span class="badge bg-danger rounded-pill"> Refuse </span>
+                                {% elseif seances.pivot.statut == "attente" %}
+                                <span class="badge bg-info rounded-pill">En Attente</span>
+                                {% elseif seances.pivot.statut == "accepte" %}
+                                <span class="badge bg-success rounded-pill">Accepte</span>
+                                {% if seances.pivot.est_termine == 1 %}
+                                        <span class="badge bg-primary rounded-pill">Termine</span>      
                                 {% endif %}
+                                {% endif %}
+                                </div>
                             </div>
-                            <div class="d-flex">
-                            {% if seances.pivot.statut == "refuse" %}
-                                <span class="badge bg-danger rounded-pill"> Refuse </span>
-                            {% elseif seances.pivot.statut == "attente" %}
-                               <span class="badge bg-info rounded-pill">En Attente</span>
-                            {% elseif seances.pivot.statut == "accepte" %}
-                               <span class="badge bg-success rounded-pill">Accepte</span>
-                               {% if seances.pivot.est_termine == 1 %}
-                                    <span class="badge bg-primary rounded-pill">Termine</span>      
-                               {% endif %}
-                            {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if data.client.coachs is empty %}
+                        <p  class="">Vous n'avez pas encore reserver de seance</p>
+                        <a href="/coachs" class="color: #2aa">Reserver ici</a>
+                    {% endif %}
                 </div><!--end col-->
             </div><!--end row-->
         </div>

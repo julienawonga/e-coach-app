@@ -5,20 +5,25 @@
     <div class="rounded shadow p-4">
         <h5>Clients:</h5>
         <div class="row">
-            {% for client in data.clients %}
-             <div class="col-lg-6 col-md-4 mt-4 pt-2">
-                <div class="text-center">
-                    <img src="{{ client.utilisateur.profil_image }}"
-                         class="avatar avatar-medium shadow-lg rounded-pill" alt="">
-                    <div class="content mt-3">
-                        <p href="javascript:void(0)" class="h5 text-dark">{{ client.utilisateur.nom }} {{ client.utilisateur.prenom }}</p>
-                        <p>{{ client.objectifs|capitalize }}</p>
-                        <a href="javascript:void(0)" class="btn " style="background-color: #2AABB0; color: #fff"><i
-                                    class="uil uil-envelope"></i> Envoyer un message</a>
-                    </div>
-                </div>
-            </div><!--end col-->
-            {% endfor %}
+            {% if data.clients is not empty %}
+                {% for client in data.clients %}
+                    <div class="col-lg-6 col-md-4 mt-4 pt-2">
+                        <div class="text-center">
+                            <img src="{{ client.utilisateur.profil_image }}"
+                                class="avatar avatar-medium shadow-lg rounded-pill" alt="">
+                            <div class="content mt-3">
+                                <p href="javascript:void(0)" class="h5 text-dark">{{ client.utilisateur.nom }} {{ client.utilisateur.prenom }}</p>
+                                <p>{{ client.objectifs|capitalize }}</p>
+                                <a href="javascript:void(0)" class="btn " style="background-color: #2AABB0; color: #fff"><i
+                                            class="uil uil-envelope"></i> Envoyer un message</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                {% endfor %}
+            {% endif %} 
+            {% if data.clients is empty %}
+                <p>Vous n'avez pas encre de clients !</p>
+            {% endif %}
         </div><!--end row-->
     </div>
 </div><!--end col-->
