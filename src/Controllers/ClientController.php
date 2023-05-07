@@ -22,6 +22,7 @@
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
+
             $this->render('Client/profile', compact('client'));
         }
 
@@ -35,7 +36,13 @@
         public function settings()
         {
             $this->checkClient();
-            $this->render('Client/settings');
+
+            (int)$id = $_SESSION['client_id'];
+            $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
+            if(!$client) return header('Location: /login');
+            $client = $client->toArray();
+
+            $this->render('Client/settings',compact('client'));
         }
 
         /**
@@ -53,6 +60,7 @@
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
+
             $this->render('Client/coachs', compact('client'));
         }
 
@@ -66,13 +74,13 @@
         public function reserver(array $params)
         {
             $this->checkClient();
+
             (int)$id_client = $_SESSION['client_id'];
             (int)$id_coach = $params['id'];
 
             $client = Client::where('id_utilisateur', $id_client)->with('utilisateur')->first()->toArray();
             $coach = Coach::where('id_utilisateur', $id_coach)->with('utilisateur')->first()->toArray();
 
-           
             $this->render('Client/reserver', compact('coach', 'client'));
         }
     }
