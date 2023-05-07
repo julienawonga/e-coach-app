@@ -38,3 +38,13 @@
 .avatar.avatar-large{
     border: 5px solid #2AABB0 !important;
 }
+
+.page-item > a:hover {
+    background-color: #2AABB0 !important;
+    border-color: #2AABB0 !important;
+}
+
+.pagination .page-item.active .page-link{
+    background-color: #2AABB0 !important;
+    border-color: #2AABB0 !important;
+}

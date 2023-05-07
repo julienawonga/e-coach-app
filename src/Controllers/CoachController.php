@@ -8,14 +8,24 @@ use App\Models\Utilisateur;
 class CoachController extends Controller
 {
 
+
     public function index($params = [])
     {
-        // get all users where type_utilisateur = coach
+        $results_per_page = 15;
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+
+        $number_of_coachs = Utilisateur::where('type_utilisateur', 'coach')->count();
+        $total_pages = ceil($number_of_coachs / $results_per_page);
+
         $coachs = Utilisateur::where('type_utilisateur', 'coach')
             ->with('coach')
+            ->skip($offset)
+            ->take($results_per_page)
             ->get()
             ->toArray();
-        $this->render('Coach/index', compact('coachs'));
+
+        $this->render('Coach/index', compact('coachs', 'total_pages'));
     }
 
     /**

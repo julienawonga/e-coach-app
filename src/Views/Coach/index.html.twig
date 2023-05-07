@@ -28,13 +28,19 @@
                                 <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">{{ coach_.nom|capitalize }} {{ coach_.prenom|capitalize }}</a>
                                 </h5>
                                 <small class="designation text-muted">{{ coach_.coach.specialite|capitalize }}</small>
-                                {# <h6 class="text-muted fw-normal">$ 2300</h6> #}
                             </div>
                         </div>
                     </div>
                 </a>
             </div><!--end col-->
             {% endfor %}
+            <div>
+                <ul class="col-lg d-flex justify-content-center align-items-center mb-4 pagination ">
+                    {% for i in 1..data.total_pages %}
+                        <li class="page-item "><a class="page-link" href="/coachs?page={{ i }}">{{ i }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div><!--end row-->
     </div><!--end container-->
     <!-- Candidates End -->

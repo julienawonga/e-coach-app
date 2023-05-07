@@ -69,17 +69,6 @@ CREATE TABLE paiements
     FOREIGN KEY (id_seance) REFERENCES seances (id)
 )ENGINE=InnoDB;
 
-CREATE TABLE offres
-(
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    id_coachs   INT,
-    nom         VARCHAR(255),
-    tarif       VARCHAR(256),
-    description TEXT,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_coachs) REFERENCES coachs (id)
-)ENGINE=InnoDB;
 
 CREATE TABLE avis
 (
@@ -117,16 +106,6 @@ CREATE TABLE experiences
     description    TEXT,
     created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_coach) REFERENCES coachs (id)
-)ENGINE=InnoDB;
-CREATE TABLE clients_coachs
-(
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    id_client   INT,
-    id_coach   INT,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_client) REFERENCES clients (id),
     FOREIGN KEY (id_coach) REFERENCES coachs (id)
 )ENGINE=InnoDB;
 

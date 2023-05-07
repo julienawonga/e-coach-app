@@ -25,7 +25,7 @@ class Seed
         // Création des utilisateurs
         $faker = Faker::create('fr_FR');
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $utilisateur = new Utilisateur();
             $utilisateur->id = $i;
             $utilisateur->nom = $faker->lastName;
@@ -47,7 +47,7 @@ class Seed
                 $client = new Client();
                 $client->id = $i;
                 $client->id_utilisateur = $utilisateur->id;
-                $client->objectifs = $faker->randomElement(['perte de poids', 'prise de masse', 'remise en forme']);
+                $client->objectifs = $faker->randomElement(['stress', 'depression', 'anxiete', 'traumatisme', 'relation']);
                 $client->save();
             } else {
                $coach = new Coach();
@@ -56,7 +56,16 @@ class Seed
                 $coach->tarif_horaire = $faker->randomFloat(2, 10, 100);
                 $coach->localisation = $faker->city;
                 $coach->disponibilite = $faker->randomElement([0, 1]);
-                $coach->specialite = $faker->randomElement(['perte de poids', 'prise de masse', 'remise en forme']);
+                $coach->specialite = $faker->randomElement(
+                    [
+                        'Coach en Gestion du stress',
+                        'Coach en Développement personnel',
+                        'Coach en Gestion de la dépression',
+                        'Coach en Gestion de l\'anxiété',
+                        'Coach en Relations interpersonnelles',
+                        'Coach en Gestion des traumatismes',
+                    ]
+                );
                 $coach->description = $faker->text;
                 $coach->save();
             }
@@ -82,23 +91,12 @@ class Seed
             $i++;
         }
 
-        // creation clients_coachs
-        $clients = Client::all();
-        $coachs = Coach::all();
-        $i = 1;
-        for ($i = 1; $i <= 10; $i++) {
-            $clients_coachs = new ClientsCoachs();
-            $clients_coachs->id = $i;
-            $clients_coachs->id_coach = $faker->randomElement($coachs)->id_utilisateur;
-            $clients_coachs->id_client = $faker->randomElement($clients)->id_utilisateur;
-            $clients_coachs->save();
-        }
 
         // Création des séances
         $clients = Client::all();
         $coachs = Coach::all();
         $i = 1;
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $seance = new Seance();
             $seance->id = $i;
             $seance->id_coach = $faker->randomElement($coachs)->id_utilisateur;

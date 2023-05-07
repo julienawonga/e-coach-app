@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'bootstrap.php';
-
+use Illuminate\Pagination\Paginator;
 use \Symfony\Component\VarDumper\VarDumper;
 use App\Router\Router;
 
