@@ -17,9 +17,8 @@ class MainController extends Controller
      * @return void
      *
      */
-    public function index($params = [])
+    public function index(array $params = [])
     {
-        //Seed::run();
         $coachs = Utilisateur::where('type_utilisateur', 'coach')
                             ->with('coach')
                             ->select('id', 'nom', 'prenom', 'sex', 'profil_image')
@@ -30,11 +29,10 @@ class MainController extends Controller
         $this->render('Home/index', compact('coachs'));
     }
 
-    /**
+   /**
      *
-     * Create a new resource
+     * Display a listing of the resource
      * @param array $params
-     * @param array $post
      * @return void
      *
      */
@@ -56,22 +54,54 @@ class MainController extends Controller
         $this->render('Guest/login');
     }
 
+    /**
+     *
+     * Store a newly created resource in storage
+     * @param array $params
+     * @param array $post
+     * @return void
+     *
+     */
     public function aboutUs($params = [])
     {
         $this->render('Home/about-us');
     }
 
+    /**
+     *
+     * Store a newly created resource in storage
+     * @param array $params
+     * @param array $post
+     * @return void
+     *
+     */
     public function cgu($params = [])
     {
         $this->render('Home/cgu');
     }
 
-    public function faqs($params = [])
+    /**
+     *
+     * Store a newly created resource in storage
+     * @param array $params
+     * @param array $post
+     * @return void
+     *
+     */
+    public function faqs(array $params= [], array $post = [])
     {
         $this->render('Home/faqs');
     }
 
-    public function passwordreset($params = [])
+    /**
+     *
+     * Store a newly created resource in storage
+     * @param array $params
+     * @param array $post
+     * @return void
+     *
+     */
+    public function passwordreset(array $params = [], array $post = [])
     {
         $this->render('Guest/passwordreset');
     }

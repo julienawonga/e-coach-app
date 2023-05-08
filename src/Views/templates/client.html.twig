@@ -21,8 +21,12 @@
                                         <div class="row align-items-end">
                                             <div class="col-md-7 text-md-start text-center mt-4 mt-sm-0">
                                                 <h3 class="title mb-0">{{ data.client.utilisateur.nom }} {{ data.client.utilisateur.prenom }}</h3>
+                                                <p>{{ data.client.objectifs|capitalize }}</p>
                                             </div><!--end col-->
                                             <div class="col-md-5 text-md-end text-center">
+                                            {% if data.client.utilisateur.est_complete == 0 %}
+                                                <h4 class="text-warning !">Veillez competer votre profile <a href="/profile/settings">Ici</a></h4>
+                                            {% endif %}
                                                 <ul class="list-unstyled social-icon social mb-0 mt-4">
                                                     <li class="list-inline-item"><a href="/profile/settings"
                                                                                     class="rounded"

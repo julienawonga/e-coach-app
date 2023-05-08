@@ -6,7 +6,7 @@ use App\Helpers\Assets;
 use Twig\Environment;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\Loader\FilesystemLoader;
-
+use App\Models\Utilisateur;
 abstract class Controller
 {
 
@@ -121,5 +121,11 @@ abstract class Controller
         if ($_SESSION['auth'] !== 'client') return false;
         return true;
     }
+
+    public function isProfileCompleted(int $id): bool{
+        $user = Utilisateur::where('id', $id)->select('est_complete')->first();
+        return $user->est_complete ? true : false;
+    }
+
 
 }

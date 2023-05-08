@@ -7,6 +7,11 @@ use Faker\Factory as Faker;
 
 class ReservationController extends Controller
 {
+    /**
+     * @param array $params
+     * @param array $post
+     * @return void
+     */
     public function store(array $params, array $post){
         $this->checkClient();
 
@@ -16,7 +21,6 @@ class ReservationController extends Controller
         $client = Client::where('id_utilisateur', $id)->with('utilisateur')->first();
         $coach = Coach::where('id_utilisateur', $params['id'])->with('utilisateur')->first();
 
-        
         $seance = new Seance();
         $seance->id_coach = $coach->id;
         $seance->id_client = $client->id;

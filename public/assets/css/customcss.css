@@ -52,3 +52,7 @@
 .social-icon li a:hover{
     background-color: #2AABB0 !important;
 }
+
+.avatar.avatar-ex-large{
+    border: 5px solid #2AABB0 !important;
+}

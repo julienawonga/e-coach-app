@@ -1,6 +1,8 @@
 <?php
     namespace App\Controllers;
     use App\Models\Utilisateur;
+    use App\Models\Client;
+    use App\Models\Coach;
 
     class UserController extends Controller {
 
@@ -11,7 +13,7 @@
          * @return void
          * 
          */ 
-        public function index($params = [], $post = []) {
+        public function index(array $params = [], array $post = []) {
             echo 'User controller index method';
         }
 
@@ -27,7 +29,48 @@
            $email = $post['email'];
            //check if e-mail exist
             $user = Utilisateur::where('email', $email)->get();
-            dd($user);
+           
+            if(count($user) > 0) {
+                return header('Location: /register');
+            }
+
+            if($post['role'] === 2) {
+                $user = new Utilisateur();
+                $user->nom = $post['name'];
+                $user->prenom = $post['firstName'];
+                $user->email = $post['email'];
+                $user->mot_de_passe = password_hash('password', PASSWORD_DEFAULT, ['cost' => 10]);
+                $user->profil_image = 'default.png';
+                $user->type_utilisateur = 'coach';
+                $user->est_complete = 0;
+                $user->save();
+
+                $coach = new Coach();
+                $coach->id_utilisateur = $user->id;
+                $coach->save();
+
+                return header('Location: /login');
+            }
+            else {
+                $user = new Utilisateur();
+                $user->nom = $post['name'];
+                $user->prenom = $post['firstName'];
+                $user->email = $post['email'];
+                $user->mot_de_passe = password_hash('password', PASSWORD_DEFAULT, ['cost' => 10]);
+                $user->profil_image = 'default.png';
+                $user->type_utilisateur = 'client';
+                $user->est_complete = 0;
+                $user->save();
+
+                $client = new Client();
+                $client->id_utilisateur = $user->id;
+                $client->save();
+
+                //dd($client);
+                return header('Location: /login');
+            }
+
+           
         }
 
         /**
@@ -38,27 +81,28 @@
          * @return void
          * 
          */
-        public function store($params = [], $post = []) {
+        public function store(array $params = [], array $post = []) {
 
             $email = $post['email'];
             $password = $post['password'];
 
             $user = Utilisateur::where('email', $email)->first();
 
-            if(!password_verify($password, $user->mot_de_passe)) 
+            if(!password_verify($password, $user->mot_de_passe)) {
+
                 return header('Location: /login');
+            }
 
-
-            if($user->type_utilisateur === 'client') {
+            if($user->type_utilisateur === "client") {
                 $_SESSION['auth'] = 'client';
                 $_SESSION['client_id'] = $user->id;
-                header('Location: /profile');
+                return header('Location: /profile');
             }
             else {
                 $_SESSION['auth'] = 'coach';
                 $_SESSION['coach_id'] = $user->id;
-                header('Location: /coach/dashboard');
-            }     
+                return header('Location: /coach/dashboard');
+            }
            
         }
 
@@ -70,7 +114,7 @@
          * 
          */
         public function show($params = [], $post = []) {
-            $this->render('Auth/profile');
+            return $this->render('Auth/profile');
         }
 
         /**
@@ -80,7 +124,7 @@
          * @return void
          * 
          */
-        public function edit($params = [], $post = []) {
+        public function edit(array $params = [], array $post = []) {
             echo 'User controller edit method';
         }
 
@@ -92,7 +136,7 @@
          * @return void
          * 
          */
-        public function update($params = [], $post = []) {
+        public function update(array $params = [], array $post = []) {
             echo 'User controller update method';
         }
 
@@ -103,7 +147,7 @@
          * @return void
          * 
          */
-        public function destroy($params = []) {
+        public function destroy(array $params = []) {
             echo 'User controller destroy method';
         }
 
@@ -114,9 +158,9 @@
          * @return void
          *
          */
-        public function logout($params = []) {
+        public function logout(array $params = []) {
             session_unset();
             session_destroy();
-            header('Location: /');
+            return header('Location: /');
         }
     }

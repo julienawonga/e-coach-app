@@ -60,9 +60,13 @@ class CoachController extends Controller
     public function clients()
     {
         $this->checkCoach();
-        $coach = Coach::where('id_utilisateur', $_SESSION['coach_id'])->with('utilisateur')->first();
+
+        (int)$id = $_SESSION['coach_id'];
+
+        $coach = Coach::where('id_utilisateur', $id)->with('utilisateur')->first();
         $clients = $coach->clients()->with('utilisateur')->get()->toArray();
         $coach = $coach->toArray();
+
         $this->render('Coach/members', compact('coach', 'clients'));
     }
 
@@ -76,7 +80,12 @@ class CoachController extends Controller
     public function settings()
     {
         $this->checkCoach();
-        $this->render('Coach/settings');
+
+        (int)$id = $_SESSION['coach_id'];
+
+        $coach = Coach::where('id_utilisateur', $id)->with('utilisateur')->first();
+
+        $this->render('Coach/settings', compact('coach'));
     }
 
     /**

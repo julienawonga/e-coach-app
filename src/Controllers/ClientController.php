@@ -1,7 +1,7 @@
 <?php
     namespace App\Controllers;
 
-    
+    use App\Models\Utilisateur;
     use App\Models\Client;
     use App\Models\Coach;
 
@@ -20,10 +20,12 @@
 
             (int)$id = $_SESSION['client_id'];
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
+
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
 
-            $this->render('Client/profile', compact('client'));
+
+            return $this->render('Client/profile', compact('client'));
         }
 
         /**
@@ -41,6 +43,7 @@
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
+
 
             $this->render('Client/settings',compact('client'));
         }
