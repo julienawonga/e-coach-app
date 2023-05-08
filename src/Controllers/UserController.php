@@ -23,9 +23,11 @@
          * @return void
          * 
          */
-        public function create($params = [], $post = []) {
-            var_dump($post, $params);
-            die();
+        public function create(array $params, array $post) {
+           $email = $post['email'];
+           //check if e-mail exist
+            $user = Utilisateur::where('email', $email)->get();
+            dd($user);
         }
 
         /**
@@ -37,12 +39,11 @@
          * 
          */
         public function store($params = [], $post = []) {
+
             $email = $post['email'];
             $password = $post['password'];
 
             $user = Utilisateur::where('email', $email)->first();
-
-            // if($user == null) die('user not found'); 
 
             if(!password_verify($password, $user->mot_de_passe)) 
                 return header('Location: /login');

@@ -9,6 +9,7 @@ CREATE TABLE utilisateurs
     type_utilisateur VARCHAR(255),
     date_naissance   DATE,
     sex              VARCHAR(255),
+    est_complete     INT,
     created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )ENGINE=InnoDB;

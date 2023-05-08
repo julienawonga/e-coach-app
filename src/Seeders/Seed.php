@@ -35,6 +35,7 @@ class Seed
             $utilisateur->profil_image = $faker->randomElement(['https://randomuser.me/api/portraits/men/' .$i. '.jpg', 'https://randomuser.me/api/portraits/women/' .$i. '.jpg']);
             $utilisateur->type_utilisateur = $faker->randomElement(['client', 'coach']);
             $utilisateur->date_naissance = $faker->date();
+            $utilisateur->est_complete = 1;
             $utilisateur->sex = $faker->randomElement(['m', 'f']);
             $utilisateur->save();
         }
