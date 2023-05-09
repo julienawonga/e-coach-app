@@ -10,8 +10,11 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-lg-2 col-md-3 text-md-start text-center">
-                                        <img src="{{ data.coach.utilisateur.profil_image }}"
-                                             class="avatar avatar-large rounded-circle shadow d-block mx-auto" alt="">
+                                        {% if  data.coach.utilisateur.profil_image|is_valid_url %}
+                                            <img src="{{ data.coach.utilisateur.profil_image }}" class="avatar avatar-large rounded-circle shadow d-block mx-auto" alt="">
+                                        {% else %}
+                                            <img src="{{ assets_path }}/assets/images/profile/{{ data.coach.utilisateur.profil_image }}" class="avatar avatar-large rounded-circle shadow d-block mx-auto" alt="">
+                                        {% endif %}
                                     </div><!--end col-->
 
                                     <div class="col-lg-10 col-md-9">

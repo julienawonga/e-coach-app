@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helpers\Assets;
 use App\Models\Avis;
 use App\Models\Client;
 use App\Models\Utilisateur;
@@ -19,6 +20,8 @@ class MainController extends Controller
      */
     public function index(array $params = [])
     {
+        //Seed::run();
+        //dd(Assets::assets());
         $coachs = Utilisateur::where('type_utilisateur', 'coach')
                             ->with('coach')
                             ->select('id', 'nom', 'prenom', 'sex', 'profil_image')

@@ -6,19 +6,31 @@ class Seance extends Model
 {
     protected $table = "seances";
 
+    /**
+     * @var string[] $fillable
+     */
     protected $fillable = ['id_coach', 'id_client', 'date_heure', 'duree', 'tarif', 'est_termine', 'statut', 'meet_link'];
 
-    public function client()
+    /**
+     * @var string[] $casts
+     */
+    public function client(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Client::class, 'id_client');
     }
 
-    public function coach()
+    /**
+     * @var string[] $casts
+     */
+    public function coach(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Coach::class, 'id_coach');
     }
 
-    public function avis()
+    /**
+     * @var string[] $casts
+     */
+    public function avis(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Avis::class, "id_seance");
     }

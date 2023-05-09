@@ -14,6 +14,7 @@ Router::get('/register', 'MainController@create');
 Router::post('/store', 'UserController@store');
 Router::post('/create', 'UserController@create');
 Router::post('/logout', 'UserController@logout');
+Router::post('/save-image', 'UserController@saveImage');
 
 Router::get('/reserver/[i:id]', 'ReservationController@store');
 

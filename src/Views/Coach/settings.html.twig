@@ -9,10 +9,40 @@
                     <img src="{{ data.coach.utilisateur.profil_image }}" class="avatar float-md-left avatar-medium rounded-circle shadow me-md-4" alt="">
 
                     <div class="mt-md-4 mt-3 mt-sm-0">
-                        <a href="javascript:void(0)" class="btn mt-2" style="background-color: #2AABB0; color: #fff">Changer</a>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#changeprofilimage" class="btn mt-2" style="background-color: #2AABB0; color: #fff">Changer</a>
                         <a href="javascript:void(0)" class="btn btn-outline mt-2 ms-2" style="background-color: #2AABB0; color: #fff">Supprimer</a>
                     </div>
                 </div>
+                <!-- Modal Content Start -->
+                <div class="modal fade" id="changeprofilimage" tabindex="-1" aria-labelledby="composemail-title" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content rounded shadow border-0">
+                            <div class="modal-header border-bottom">
+                                <h5 class="modal-title" id="composemail-title">Choisisez une nouvelle photo</h5>
+                                <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <form action="/save-image" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Selectionez une image <span class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input name="photo" id="photo" type="file" class="form-control ps-5" accept="image/*" >
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                                    </div><!--end row-->
+                                    <div class="border-top p-4">
+                                        <button type="submit" class="btn" style="background-color: #2AABB0">Send Now</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Content End -->
                 <form>
                     <div class="row mt-4">
                         <div class="col-md-6">

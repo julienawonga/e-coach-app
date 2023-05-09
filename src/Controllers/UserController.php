@@ -95,11 +95,13 @@
 
             if($user->type_utilisateur === "client") {
                 $_SESSION['auth'] = 'client';
+                $_SESSION['id'] = $user->id;
                 $_SESSION['client_id'] = $user->id;
                 return header('Location: /profile');
             }
             else {
                 $_SESSION['auth'] = 'coach';
+                $_SESSION['id'] = $user->id;
                 $_SESSION['coach_id'] = $user->id;
                 return header('Location: /coach/dashboard');
             }
@@ -163,4 +165,72 @@
             session_destroy();
             return header('Location: /');
         }
+
+        /**
+         *
+         * @param array $post
+         * @param array $params
+         * @return void
+         *
+         */
+        public function saveImage(array $params = [], array $post = []){
+            $target_dir = dirname(__DIR__, 2) . "/public/assets/images/profile/";
+            // generate unique name for file
+            $target_file = $target_dir . uniqid() . basename($_FILES["photo"]["name"]);
+            //$target_file = $target_dir . basename($_FILES["photo"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+            $check = getimagesize($_FILES["photo"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            }
+            else {
+                dd('error 1');
+                $uploadOk = 0;
+            }
+
+            if (file_exists($target_file)) {
+                dd('error 2');
+                $uploadOk = 0;
+            }
+
+            if ($_FILES["photo"]["size"] > 500000) {
+                dd('error 3');
+                $uploadOk = 0;
+            }
+
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                dd('error 4');
+                $uploadOk = 0;
+            }
+
+            if ($uploadOk == 0) {
+                dd('error 5');
+                return header('Location: /profile');
+            }
+            else {
+                if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+                    $user = Utilisateur::where('id', $_SESSION['id'])->first();
+                    $user->profil_image = basename($_FILES["photo"]["name"]);
+                    $user->save();
+                    if($user->type_utilisateur === 'client') {
+                        return header('Location: /profile');
+                    }
+                    else {
+                        return header('Location: /coach/dashboard');
+                    }
+                }
+                else {
+                    $user = Utilisateur::where('id', $_SESSION['id'])->first();
+                    if($user->type_utilisateur === 'client') {
+                        return header('Location: /profile');
+                    }
+                    else {
+                        return header('Location: /coach/dashboard');
+                    }
+                }
+            }
+        }
+
     }

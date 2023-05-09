@@ -7,6 +7,8 @@ use Twig\Environment;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\Loader\FilesystemLoader;
 use App\Models\Utilisateur;
+use Twig\TwigFilter;
+
 abstract class Controller
 {
 
@@ -21,8 +23,14 @@ abstract class Controller
         $this->twig = new Environment($this->loader, [
             'debug' => true,
         ]);
+        $filter = new TwigFilter('is_valid_url', function ($url)
+        {
+            return filter_var($url, FILTER_VALIDATE_URL) !== false;
+        });
+
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         $this->twig->addExtension(new IntlExtension());
+        $this->twig->addFilter($filter);
     }
 
     public function render(?string $view = null, array $params = [])
@@ -127,5 +135,9 @@ abstract class Controller
         return $user->est_complete ? true : false;
     }
 
+//    public function is_valid_url($url): bool
+//    {
+//        return filter_var($url, FILTER_VALIDATE_URL) !== false;
+//    }
 
 }

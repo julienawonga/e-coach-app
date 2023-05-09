@@ -16,31 +16,53 @@ class Coach extends Model
         return $this->belongsTo(Utilisateur::class, "id_utilisateur");
     }
 
-    public function seances()
+    /**
+     * Get the seances for the coach.
+     *
+     * @return string
+     */
+    public function seances(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Seance::class, 'id_coach');
     }
 
-    public function clients()
+    /**
+     * Get the seances for the coach.
+     *
+     * @return string
+     */
+    public function clients(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Client::class, 'seances', 'id_coach', 'id_client')
             ->withPivot(['date_heure', 'duree', 'tarif', 'est_termine', 'statut', 'meet_link']);
     }
 
-    // all experiences of a coach
-    public function experiences()
+    /**
+     * Get Experiences for the coach.
+     *
+     * @return string
+     */
+    public function experiences(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Experience::class, 'id_coach');
     }
 
-    // coach lang
-    public function coachLangs()
+    /**
+     * Get Formations for the coach.
+     *
+     * @return string
+     */
+    public function coachLangs(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(CoachLang::class, 'id_coach');
     }
 
-    // coach competances
-    public function coachCompetances()
+    /**
+     * Get Formations for the coach.
+     *
+     * @return string
+     */
+    public function coachCompetances(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(CoachCompetances::class, 'id_coach');
     }
