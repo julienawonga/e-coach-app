@@ -1,5 +1,5 @@
 {% extends './templates/base.html.twig' %}
-
+{% block title  %}Conexion-ecoach{% endblock %}
 {% block body %}
     <div class="back-to-home">
         <a href="/" class="back-button btn btn-icon btn-primary"><i data-feather="arrow-left" class="icons"></i></a>
@@ -11,6 +11,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card form-signin p-4 rounded shadow">
+                        {% if session['flash']['danger'] is not empty %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ session['flash']['danger'] }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endif %}
                         <form action='/store' method='post'>
                             <a href="index.html"><img src="assets/images/app/logo.png"
                                                       class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>

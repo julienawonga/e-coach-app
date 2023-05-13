@@ -90,6 +90,8 @@
 
             if(!password_verify($password, $user->mot_de_passe)) {
 
+                // set flash message
+                $_SESSION['flash']['danger'] = "Email ou mot de passe incorrect";
                 return header('Location: /login');
             }
 
@@ -97,12 +99,16 @@
                 $_SESSION['auth'] = 'client';
                 $_SESSION['id'] = $user->id;
                 $_SESSION['client_id'] = $user->id;
+                // set flash message
+                $_SESSION['flash']['success'] = "Vous êtes connecté";
                 return header('Location: /profile');
             }
             else {
                 $_SESSION['auth'] = 'coach';
                 $_SESSION['id'] = $user->id;
                 $_SESSION['coach_id'] = $user->id;
+                // set flash message
+                $_SESSION['flash']['success'] = "Vous êtes connecté";
                 return header('Location: /coach/dashboard');
             }
            
