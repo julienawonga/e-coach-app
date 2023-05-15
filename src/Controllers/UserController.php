@@ -31,10 +31,11 @@
             $user = Utilisateur::where('email', $email)->get();
            
             if(count($user) > 0) {
-                return header('Location: /register');
+                return header('Location: /register?=message=Email déjà utilisé');
             }
 
-            if($post['role'] === 2) {
+
+            if($post['role'] == 2) {
                 $user = new Utilisateur();
                 $user->nom = $post['name'];
                 $user->prenom = $post['firstName'];
@@ -89,9 +90,9 @@
             $user = Utilisateur::where('email', $email)->first();
 
             if(!password_verify($password, $user->mot_de_passe)) {
-
                 // set flash message
                 $_SESSION['flash']['danger'] = "Email ou mot de passe incorrect";
+                dd("Email ou mot de passe incorrect");
                 return header('Location: /login');
             }
 
@@ -182,7 +183,8 @@
         public function saveImage(array $params = [], array $post = []){
             $target_dir = dirname(__DIR__, 2) . "/public/assets/images/profile/";
             // generate unique name for file
-            $target_file = $target_dir . uniqid() . basename($_FILES["photo"]["name"]);
+            $uniqid = uniqid();
+            $target_file = $target_dir . $uniqid . basename($_FILES["photo"]["name"]);
             //$target_file = $target_dir . basename($_FILES["photo"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -218,7 +220,7 @@
             else {
                 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
                     $user = Utilisateur::where('id', $_SESSION['id'])->first();
-                    $user->profil_image = basename($_FILES["photo"]["name"]);
+                    $user->profil_image = $uniqid.basename($_FILES["photo"]["name"]);
                     $user->save();
                     if($user->type_utilisateur === 'client') {
                         return header('Location: /profile');

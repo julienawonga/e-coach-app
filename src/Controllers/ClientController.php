@@ -86,4 +86,30 @@
 
             $this->render('Client/reserver', compact('coach', 'client'));
         }
+
+        /**
+         *
+         * Display the specified resource
+         * @param array $params
+         * @return void
+         *
+         */
+        public function saveUserParams(array $params, array $post){
+            $this->checkClient();
+            $user = Utilisateur::find($_SESSION['client_id']);
+
+            $user->nom = $post['nom'];
+            $user->prenom = $post['prenom'];
+            $user->email = $post['email'];
+            $user->est_complete = 1;
+
+
+            $client = Client::where('id_utilisateur', $_SESSION['client_id'])->first();
+            $client->objectifs = $post['description'];
+
+            $user->save();
+            $client->save();
+
+            return header('Location: /profile/settings');
+        }
     }

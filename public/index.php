@@ -22,6 +22,7 @@ Router::get('/reserver/[i:id]', 'ReservationController@store');
 Router::get('/profile', 'ClientController@profile');
 Router::get('/profile/settings', 'ClientController@settings');
 Router::get('/c/coachs', 'ClientController@coachs');
+Router::post('/save-user-params', 'ClientController@saveUserParams');
 
 
 
@@ -34,6 +35,7 @@ Router::get('/coach/profile/settings', 'CoachController@settings');
 Router::get('/coach/clients', 'CoachController@clients');
 Router::get('/coach/seances', 'CoachController@seances');
 Router::get('/client/profile', 'ClientController@show');
+Router::post('/save-coach-data', 'CoachController@update');
 
 // Others
 Router::get('/about-us', 'MainController@aboutUs');

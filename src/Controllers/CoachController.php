@@ -124,4 +124,32 @@ class CoachController extends Controller
         $this->render('Coach/profile', compact('coach', 'experiences', 'langues', 'seances', 'clients'));
     }
 
+    /**
+     *
+     * Display the specified resource
+     * @param array $params
+     * @return void
+     *
+     */
+    public function update(array $params, array $post){
+        $this->checkCoach();
+        $user = Utilisateur::where('id', $_SESSION['coach_id'])->first();
+        $coach = Coach::where('id_utilisateur', $_SESSION['coach_id'])->first();
+
+        $user->nom = $post['nom'];
+        $user->prenom = $post['prenom'];
+        $user->email = $post['email'];
+        $user->est_complete = 1;
+
+        $coach->specialite = $post['specialite'];
+        $coach->description = $post['description'];
+        $coach->tarif_horaire = $post['tarif'];
+        $coach->disponibilite = $post['disponibilite'];
+
+        $user->save();
+        $coach->save();
+
+        return header('Location: /coach/dashboard');
+    }
+
 }
