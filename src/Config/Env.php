@@ -6,6 +6,10 @@ use Dotenv\Dotenv;
 
 class Env
 {
+    /**
+     * @param $key
+     * @return mixed
+     */
     public static function getEnv($key)
     {
         self::loadEnv();
