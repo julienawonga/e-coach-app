@@ -8,9 +8,6 @@ class Env
 {
     public static function getEnv($key)
     {
-        // if(!isset($_ENV[$key])) {
-        //     throw new \Exception("The key $key is not defined in the .env file");
-        // }
         self::loadEnv();
         return $_ENV[$key];
     }
