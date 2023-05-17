@@ -16,6 +16,9 @@ class Env
         return $_ENV[$key];
     }
 
+    /**
+     * @return \Dotenv\Dotenv
+     */
     public static function loadEnv()
     {
         $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
