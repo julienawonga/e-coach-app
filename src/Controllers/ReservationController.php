@@ -13,6 +13,7 @@ class ReservationController extends Controller
      * @return void
      */
     public function store(array $params, array $post){
+        //dd($post['date'], $params);
         $this->checkClient();
 
         $faker = Faker::create('fr_FR');
@@ -24,7 +25,8 @@ class ReservationController extends Controller
         $seance = new Seance();
         $seance->id_coach = $coach->id;
         $seance->id_client = $client->id;
-        $seance->date_heure = $post['meeting-time'];
+        $seance->date_heure = $post['date'];
+        $seance->message = $post['message'];
         $seance->tarif = $coach->tarif_horaire;
         $seance->statut = 'attente';
         $seance->meet_link = 'https://meet.google.com/' . $faker->bothify('????-####-????');;

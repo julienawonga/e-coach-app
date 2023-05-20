@@ -16,7 +16,8 @@ Router::post('/create', 'UserController@create');
 Router::post('/logout', 'UserController@logout');
 Router::post('/save-image', 'UserController@saveImage');
 
-Router::get('/reserver/[i:id]', 'ReservationController@store');
+Router::post('/reserver/[i:id]', 'ReservationController@store');
+Router::get('/reserver', 'CoachController@index');
 
 // For Client
 Router::get('/profile', 'ClientController@profile');

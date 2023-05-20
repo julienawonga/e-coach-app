@@ -47,6 +47,7 @@ CREATE TABLE seances
     date_heure DATETIME,
     duree      DATETIME,
     tarif      DECIMAL,
+    message     TEXT,
     statut     VARCHAR(255),
     meet_link  VARCHAR(255),
     est_termine INT,

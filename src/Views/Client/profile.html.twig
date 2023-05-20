@@ -19,8 +19,11 @@
                                     <p class="text-muted mb-0">{{ seances.specialite|capitalize}}</p>
                                     <p class="text-muted mb-0"><a href="javascript:void(0)" class="read-more">{{ seances.pivot.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a")}}</a>
                                     <br/> {{ seances.pivot.tarif }} MAD</p>
-                                    {% if seances.pivot.statut == "accepte" %}
+                                    {% if seances.pivot.statut == "accepte" and seances.pivot.est_termine == 0 %}
                                         <p class="text-green-500 mb-0"> {{ seances.pivot.meet_link }}</p>
+                                    {% endif %}
+                                    {% if seances.pivot.est_termine == 1 and seances.pivot.statut == "accepte" %}
+                                        <a href="#" class="btn btn-success btn-sm" >Noter le coach</a>
                                     {% endif %}
                                 </div>
                                 <div class="d-flex">

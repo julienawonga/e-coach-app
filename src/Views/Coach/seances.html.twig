@@ -30,12 +30,15 @@
 
 
                                 <h6 class="text-dark">{{ seance.client.utilisateur.nom|capitalize }} {{ seance.client.utilisateur.prenom|capitalize }}</h6>
-                                <p class="text-muted mb-0">{{ seance.client.objectifs|capitalize }}</p>
+                                <p style="padding: 0; margin: 0;">{{ seance.client.objectifs|capitalize }}</p>
+                                <p>{{ seance.message }}</p>
                                 {% if seance.statut== "attente" %}
                                     <a href="/confirmer/{{ seance.id }}" class="btn btn-success btn-sm"> Confirmer</a>
                                     <a href="/annuler/{{ seance.id }}" class="btn btn-danger btn-sm"> Refuser</a>
                                     {% elseif seance.statut== "accepte" %}
-                                    <a href="/terminer/{{ seance.id }}" class="btn btn-success btn-sm">Termine</a>
+                                        {% if seance.est_termine == 0 %}
+                                            <a href="/terminer/{{ seance.id }}" class="btn btn-success btn-sm">Termine</a>
+                                        {% endif %}
                                 {% endif %}
                             </div>
                         </div>

@@ -6,6 +6,40 @@
     <!-- Hero Start -->
     <section class="bg-profile d-table w-100"
              style="background: url('{{ assets_path }}/assets/images/account/bg.png') center center; background-color: #2AABB0 !important;">
+        <!-- Modal Content Start -->
+        <div class="modal fade" id="reserver" tabindex="-1" aria-labelledby="reserver-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content rounded shadow border-0">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title" id="reserver-title">Réserver une seance avec {{ data.coach.utilisateur.prenom }}</h5>
+                        <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form action="/reserver/{{ data.coach.id }}" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Choissisez une date<span class="text-danger">*</span></label>
+                                        <div class="form-icon position-relative">
+                                            <i data-feather="user" class="fea icon-sm icons"></i>
+                                            <input name="date" id="date" type="datetime-local" class="form-control ps-5">
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-12">
+                                    <textarea name="message" id="message" rows="4" class="form-control" placeholder="Votre message"></textarea>
+                                </div>
+                            </div><!--end row-->
+                            <div class="border-top p-4">
+                                <button type="submit" class="btn" style="color: #fff ; background-color: #2AABB0">Confirmer</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal Content End -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -32,7 +66,7 @@
                                             <ul class="list-unstyled mb-0 mt-4">
                                                 {% if(session['auth']=='client') %}
                                                     <li class="list-inline-item">
-                                                        <a href="/reserver/{{data.coach.id}}"
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#reserver"
                                                             class="btn " style="background-color: #2aa; color: #fff">
                                                             Reserver
                                                         </a>

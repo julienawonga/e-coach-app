@@ -9,7 +9,7 @@ class Seance extends Model
     /**
      * @var string[] $fillable
      */
-    protected $fillable = ['id_coach', 'id_client', 'date_heure', 'duree', 'tarif', 'est_termine', 'statut', 'meet_link'];
+    protected $fillable = ['id_coach', 'id_client', 'date_heure', 'duree', 'tarif', 'est_termine', 'statut', 'meet_link', 'message'];
 
     /**
      * @var string[] $casts

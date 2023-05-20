@@ -103,6 +103,7 @@ class Seed
             $seance->id_coach = $faker->randomElement($coachs)->id_utilisateur;
             $seance->id_client = $faker->randomElement($clients)->id_utilisateur;
             $seance->est_termine = $faker->randomElement([0, 1]);
+            $seance->message = $faker->text;
             $seance->statut = $faker->randomElement(['attente', 'accepte', 'refuse']);
             $seance->meet_link = 'https://meet.google.com/' . $faker->bothify('????-####-????');
             $seance->date_heure = $faker->dateTimeBetween('now', '+1 years');
