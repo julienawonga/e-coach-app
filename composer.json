@@ -6,8 +6,6 @@
             "App\\Controllers\\": "src/Controllers/",
             "App\\Models\\": "src/Models/",
             "App\\Views\\": "src/Views/",
-            "App\\Middlewares\\": "src/Middlewares/",
-            "App\\Exceptions\\": "src/Exceptions/",
             "App\\Helpers\\": "src/Helpers/"
         }
     },

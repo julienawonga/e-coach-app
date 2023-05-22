@@ -10,7 +10,11 @@
                 <div class="d-flex border-bottom p-3 position-relative">
                     <a href="javascript:void(0)">
                         <div class="d-flex ms-2">
+                            {% if seance.client.utilisateur.profil_image|is_valid_url  %}
                             <img src="{{ seance.client.utilisateur.profil_image }}" class="avatar avatar-md-sm rounded-pill shadow" alt="">
+                            {% else %}
+                            <img src="{{ assets_path }}/assets/images/profile/{{ seance.client.utilisateur.profil_image }}" class="avatar avatar-md-sm rounded-pill shadow" alt="">
+                            {% endif %}
                             <div class="flex-1 ms-3">
                                 <span class="badge bg-secondary rounded-pill">{{ seance.date_heure|format_datetime(pattern="dd'-'MM'-'yy h:mm a") }}</span>
                                 {% if seance.est_termine == 1 %}

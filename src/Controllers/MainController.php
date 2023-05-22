@@ -21,7 +21,6 @@ class MainController extends Controller
     public function index(array $params = [])
     {
         //Seed::run();
-        //dd(Assets::assets());
         $coachs = Utilisateur::where('type_utilisateur', 'coach')
                             ->with('coach')
                             ->select('id', 'nom', 'prenom', 'sex', 'profil_image')

@@ -22,6 +22,7 @@ class CoachController extends Controller
             ->with('coach')
             ->skip($offset)
             ->take($results_per_page)
+            ->latest()
             ->get()
             ->toArray();
 

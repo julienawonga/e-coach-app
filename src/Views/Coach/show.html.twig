@@ -15,7 +15,7 @@
                         <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
                     </div>
                     <div class="modal-body p-4">
-                        <form action="/reserver/{{ data.coach.id }}" method="post">
+                        <form action="/reserver/{{ data.coach.utilisateur.id }}" method="post">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-3">
@@ -47,8 +47,13 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-lg-2 col-md-3 text-md-start text-center">
+                                    {% if data.coach.utilisateur.profil_image|is_valid_url %}
                                     <img src="{{ data.coach.utilisateur.profil_image }}"
                                          class="avatar avatar-large rounded-circle d-block mx-auto" alt="">
+                                    {% else %}
+                                    <img src="{{ assets_path }}/assets/images/profile/{{ data.coach.utilisateur.profil_image }}"
+                                         class="avatar avatar-large rounded-circle d-block mx-auto" alt="">
+                                    {% endif %}
                                 </div><!--end col-->
 
                                 <div class="col-lg-10 col-md-9">

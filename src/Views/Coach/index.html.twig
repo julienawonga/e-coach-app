@@ -21,8 +21,13 @@
                     <div class="card team team-primary text-center border-0">
                         <div class="card-body">
                             <div class="position-relative">
+                                {% if coach_.profil_image|is_valid_url %}
                                 <img src="{{ coach_.profil_image }}"
                                      class="img-fluid avatar avatar-ex-large rounded-circle shadow ">
+                                {% else %}
+                                <img src="{{ assets_path }}/assets/images/profile/{{ coach_.profil_image }}"
+                                     class="img-fluid avatar avatar-ex-large rounded-circle shadow ">
+                                {% endif %}
                             </div>
                             <div class="content pt-3 pb-3">
                                 <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">{{ coach_.nom|capitalize }} {{ coach_.prenom|capitalize }}</a>
