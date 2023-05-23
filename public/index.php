@@ -25,9 +25,6 @@ Router::get('/profile/settings', 'ClientController@settings');
 Router::get('/c/coachs', 'ClientController@coachs');
 Router::post('/save-user-params', 'ClientController@saveUserParams');
 
-
-
-
 // For Coach
 Router::get('/coachs', 'CoachController@index');
 Router::get('/coach/[i:id]', 'CoachController@show');
@@ -48,4 +45,6 @@ Router::get('/passwordreset', 'MainController@passwordreset');
 Router::get('/confirmer/[i:id]', 'SeanceController@confirmer');
 Router::get('/annuler/[i:id]', 'SeanceController@annuler');
 Router::get('/terminer/[i:id]', 'SeanceController@terminer');
+
+
 Router::run();

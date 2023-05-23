@@ -32,6 +32,8 @@
                 $method = $target[1];
                 $params = Array($match['params'], $_POST);
                 call_user_func_array([new $controller(), $method], $params);
+            }else{
+                echo '404';
             }
         }
 
