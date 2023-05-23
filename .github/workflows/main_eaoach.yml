@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'eaoach'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0617AF3E132848919E0D9CD9E0AC917E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0BE1B4E3F64A4A21B5EF79599311A8EE }}
           package: .
