@@ -18,6 +18,7 @@ class DBConnection
             'database' => Env::getEnv('DB_DATABASE'),
             'username' => Env::getEnv('DB_USERNAME'),
             'password' => Env::getEnv('DB_PASSWORD'),
+            'flag' => Env::getEnv('DB_FLAG'),
             'port' => Env::getEnv('DB_PORT'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
