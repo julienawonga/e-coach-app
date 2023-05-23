@@ -67,7 +67,6 @@
                 $client->id_utilisateur = $user->id;
                 $client->save();
 
-                //dd($client);
                 return header('Location: /login');
             }
 
