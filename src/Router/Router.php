@@ -9,7 +9,6 @@
         public static function init(){
             if(self::$router == null){
                 self::$router = new AltoRouter();
-                self::$router->setBasePath('');
             }
         }
 
