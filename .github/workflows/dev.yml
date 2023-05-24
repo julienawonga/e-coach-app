@@ -1,0 +1,22 @@
+name: Build and deploy PHP app to Azure Web App - ecoach
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: show current directory
+        run: pwd
+
+      - name : show files in current directory
+        run: ls -a
+      - name: show secrets
+        run: echo ${{ secrets.DB_PASSWORD }}
