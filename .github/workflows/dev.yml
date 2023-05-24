@@ -19,4 +19,4 @@ jobs:
       - name : show files in current directory
         run: ls -a
       - name: show secrets
-        run: echo ${{ secrets.DB_PASSWORD }}
+        run: echo ${{ secrets.DB_HOST }}
