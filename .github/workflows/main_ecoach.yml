@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: 
+      name: "Production"
 
     steps:
       - uses: actions/checkout@v2
@@ -44,10 +46,6 @@ jobs:
           echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> ${{ github.workspace }}/.env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ${{ github.workspace }}/.env
 
-
-      - name: Show env file
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: cat ${{ github.workspace }}/.env
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
