@@ -34,8 +34,8 @@ jobs:
       - name: Create .env file
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          echo "APP_NAME=${{env.APP_NAME }}" >> ${{ github.workspace  }}/.env
-          echo "APP_URL=${{ env.APP_URL }}>> ${{ github.workspace }}/.env
+          echo "APP_NAME=${{ env.APP_NAME }}" >> ${{ github.workspace }}/.env
+          echo "APP_URL=${{ env.APP_URL }}" >> ${{ github.workspace }}/.env
           echo "DB_DRIVER=${{ secrets.DB_DRIVER }}" >> ${{ github.workspace }}/.env
           echo "DB_FLAG=${{ secrets.DB_FLAG }}" >> ${{ github.workspace }}/.env
           echo "DB_HOST=${{ secrets.DB_HOST }}" >> ${{ github.workspace }}/.env
@@ -43,6 +43,7 @@ jobs:
           echo "DB_DATABASE=${{ secrets.DB_DATABASE }}" >> ${{ github.workspace }}/.env
           echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> ${{ github.workspace }}/.env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ${{ github.workspace }}/.env
+
 
       - name: Show env file
         if: steps.check_files.outputs.files_exists == 'true'
