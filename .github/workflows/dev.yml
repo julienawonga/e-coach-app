@@ -19,6 +19,6 @@ jobs:
         run: pwd
 
       - name : show files in current directory
-        run: ls -a
+        run: ls
       - name: show secrets
         run: echo ${{ secrets.DB_HOST }}
