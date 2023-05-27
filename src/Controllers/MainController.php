@@ -33,7 +33,7 @@ class MainController extends Controller
                     ->get()
                     ->toArray();
 
-        if($coachs != null){
+        if($coachs != null && $avis != null){
             $this->render('Home/index', compact('coachs', 'avis'));
         }else{
             

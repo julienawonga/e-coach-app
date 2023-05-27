@@ -199,77 +199,24 @@
             <div class="row">
                 <div class="col-12 mt-4 pt-2">
                     <div class="tiny-three-item">
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
+                        {% for avis in data.avis %}
+{#                            {{ dump(avis) }}#}
+                            <div class="tiny-slide">
+                                <div class="card client-testi border-0 text-center">
+                                    <div class="card-body">
+                                        {% if  avis.seance.client.utilisateur.profil_image|is_valid_url %}
+                                            <img src="{{ avis.seance.client.utilisateur.profil_image }}"
+                                                 class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                                        {% else %}
+                                            <img src="{{ assets_path }}/assets/images/profile/{{ avis.seance.client.utilisateur.profil_image }}"
+                                                 class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                                        {% endif %}
+                                        <p class="text-muted mt-4">"{{ avis.commentaire }} "</p>
+                                        <h6 style="color: #2AABB0;">- {{ avis.seance.client.utilisateur.prenom }}</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tiny-slide">
-                            <div class="card client-testi border-0 text-center">
-                                <div class="card-body">
-                                    <img src="assets/images/client/01.jpg"
-                                         class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                    <p class="text-muted mt-4">" It seems that only fragments of the original text
-                                        remain in the Lorem Ipsum texts used today. "</p>
-                                    <h6 style="color: #2AABB0;">- Thomas Israel</h6>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
@@ -328,7 +275,8 @@
     <!-- Cookies End -->
 
     <!-- Back to top -->
-    <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fs-5"><i data-feather="arrow-up"
-                                                                                     class="fea icon-sm icons align-middle"></i></a>
+    <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fs-5">
+        <i data-feather="arrow-up" class="fea icon-sm icons align-middle" ></i>
+    </a>
     <!-- Back to top -->
 {% endblock %}
