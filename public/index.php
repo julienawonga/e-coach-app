@@ -39,6 +39,7 @@ Router::get('/about-us', 'MainController@aboutUs');
 Router::get('/cgu', 'MainController@cgu');
 Router::get('/faqs', 'MainController@faqs');
 Router::get('/passwordreset', 'MainController@passwordreset');
+Router::get('/contact', 'MainController@contact');
 
 // Error pages
 Router::get('/404', 'ErrorController@notFound');
