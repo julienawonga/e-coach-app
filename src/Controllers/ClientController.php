@@ -21,10 +21,10 @@
             (int)$id = $_SESSION['client_id'];
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
 
-            if(!$client) return header('Location: /login');
+            // check if clien exist
+            if($client == null) return header('Location: /login');
             $client = $client->toArray();
-
-
+            
             return $this->render('Client/profile', compact('client'));
         }
 
@@ -43,7 +43,6 @@
             $client = Client::where('id_utilisateur', $id)->with('utilisateur', 'coachs', 'coachs.utilisateur')->first();
             if(!$client) return header('Location: /login');
             $client = $client->toArray();
-
 
             $this->render('Client/settings',compact('client'));
         }

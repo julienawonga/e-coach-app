@@ -41,6 +41,7 @@ abstract class Controller
         $this->twig->display($view_path, ['assets_path' => $assets_path, 'data' => $data, 'session' => $_SESSION]);
     }
 
+
     /**
      *
      * Check if the user is authenticated
@@ -49,7 +50,7 @@ abstract class Controller
      */
     public function checkAuth()
     {
-        if (!$this->isAuth()) return header('Location: /login');
+        if (!$this->isAuth()) return header('Location: /401', 401);
     }
 
     /**
@@ -64,23 +65,8 @@ abstract class Controller
         return true;
     }
 
-    /**
-     *
-     * Check if the user is an admin
-     * @return void
-     *
-     */
-    public function checkAdmin()
-    {
-        if (!$this->isAdmin()) return header('Location: /login');
-    }
 
-    public function isAdmin(): bool
-    {
-        if (!$this->isAuth()) return false;
-        if ($_SESSION['auth'] !== 'admin') return false;
-        return true;
-    }
+
 
     /**
      *
@@ -90,7 +76,7 @@ abstract class Controller
      */
     public function checkCoach()
     {
-        if (!$this->isCoach()) return header('Location: /login');
+        if (!$this->isCoach()) return header('Location: /403', 403);
     }
 
     /**
@@ -114,7 +100,7 @@ abstract class Controller
      */
     public function checkClient()
     {
-        if (!$this->isClient()) return header('Location: /login');
+        if (!$this->isClient()) return header('Location: /403', 403);
     }
 
     /**
@@ -135,9 +121,5 @@ abstract class Controller
         return $user->est_complete ? true : false;
     }
 
-//    public function is_valid_url($url): bool
-//    {
-//        return filter_var($url, FILTER_VALIDATE_URL) !== false;
-//    }
 
 }

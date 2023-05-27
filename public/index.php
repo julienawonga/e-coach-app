@@ -41,6 +41,11 @@ Router::get('/cgu', 'MainController@cgu');
 Router::get('/faqs', 'MainController@faqs');
 Router::get('/passwordreset', 'MainController@passwordreset');
 
+// Error pages
+Router::get('/404', 'ErrorController@notFound');
+Router::get('/401', 'ErrorController@unauthorized');
+Router::get('/403', 'ErrorController@forbidden');
+
 // SEANCE 
 Router::get('/confirmer/[i:id]', 'SeanceController@confirmer');
 Router::get('/annuler/[i:id]', 'SeanceController@annuler');

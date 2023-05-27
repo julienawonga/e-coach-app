@@ -27,8 +27,13 @@ class MainController extends Controller
                             ->take(4)
                             ->get()
                             ->toArray();
+        if($coachs != null){
+            $this->render('Home/index', compact('coachs'));
+        }else{
+            
+            header("Location: /404", 404);
+        }
 
-        $this->render('Home/index', compact('coachs'));
     }
 
    /**
@@ -107,4 +112,7 @@ class MainController extends Controller
     {
         $this->render('Guest/passwordreset');
     }
+
+
+
 }
