@@ -32,7 +32,6 @@ Router::get('/coach/dashboard', 'CoachController@dashboard');
 Router::get('/coach/profile/settings', 'CoachController@settings');
 Router::get('/coach/clients', 'CoachController@clients');
 Router::get('/coach/seances', 'CoachController@seances');
-Router::get('/client/profile', 'ClientController@show');
 Router::post('/save-coach-data', 'CoachController@update');
 
 // Others
