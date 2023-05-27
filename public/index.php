@@ -32,7 +32,6 @@ Router::get('/coach/dashboard', 'CoachController@dashboard');
 Router::get('/coach/profile/settings', 'CoachController@settings');
 Router::get('/coach/clients', 'CoachController@clients');
 Router::get('/coach/seances', 'CoachController@seances');
-Router::get('/client/profile', 'ClientController@show');
 Router::post('/save-coach-data', 'CoachController@update');
 
 // Others
@@ -40,6 +39,12 @@ Router::get('/about-us', 'MainController@aboutUs');
 Router::get('/cgu', 'MainController@cgu');
 Router::get('/faqs', 'MainController@faqs');
 Router::get('/passwordreset', 'MainController@passwordreset');
+Router::get('/contact', 'MainController@contact');
+
+// Error pages
+Router::get('/404', 'ErrorController@notFound');
+Router::get('/401', 'ErrorController@unauthorized');
+Router::get('/403', 'ErrorController@forbidden');
 
 // SEANCE 
 Router::get('/confirmer/[i:id]', 'SeanceController@confirmer');

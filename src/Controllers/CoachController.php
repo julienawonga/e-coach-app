@@ -38,7 +38,7 @@ class CoachController extends Controller
      */
     public function show(array $params)
     {
-        //Seed::run();
+
         (int)$id = $params['id'];
         $coach = Coach::where('id_utilisateur', $id)->with('utilisateur')->first();
 

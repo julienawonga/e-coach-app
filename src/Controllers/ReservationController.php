@@ -13,7 +13,7 @@ class ReservationController extends Controller
      * @return void
      */
     public function store(array $params, array $post){
-        //dd($post['date'], $params);
+       
         $this->checkClient();
 
         $faker = Faker::create('fr_FR');

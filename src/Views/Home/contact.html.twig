@@ -1,0 +1,180 @@
+{% extends "./templates/base.html.twig" %}
+{% block title  %}contact{% endblock %}
+{% block body %}
+<!-- Hero Start -->
+<section class="bg-half-170 bg-light d-table w-100">
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="pages-heading">
+                    <h4 class="title mb-0">Nous Contacter</h4>
+                </div>
+            </div> <!--end col-->
+        </div><!--end row-->
+
+        <div class="position-breadcrumb">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+                <ul class="breadcrumb rounded shadow mb-0 px-4 py-2">
+                    <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+                    <li class="breadcrumb-item active" style="color: #2aabb0" aria-current="page">Contact</li>
+                </ul>
+            </nav>
+        </div>
+    </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
+<!-- Start Contact -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-0 text-center features feature-primary feature-clean">
+                    <div class="icons text-center mx-auto">
+                        <i class="uil uil-phone d-block rounded h3 mb-0" style="background-color: #2aabb0; color:#fff"></i>
+                    </div>
+                    <div class="content mt-4" >
+                        <h5 class="fw-bold">Telephone</h5>
+                        <p class="text-muted">Pour toute demande d'information, de collaboration ou pour prendre rendez-vous, n'hésitez pas à nous appeler. Nous serons heureux de vous entendre et de répondre à toutes vos questions.</p>
+                        <a href="tel:+212 660-43-32-56" class="read-more">
+                            <p style="color: #2aabb0">
+                                tel:+212 660-43-32-56
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <div class="card border-0 text-center features feature-primary feature-clean">
+                    <div class="icons text-center mx-auto">
+                        <i class="uil uil-envelope d-block rounded h3 mb-0" style="background-color: #2aabb0; color:#fff"></i>
+                    </div>
+                    <div class="content mt-4">
+                        <h5 class="fw-bold">Email</h5>
+                        <p class="text-muted">N'hésitez pas à nous contacter par e-mail, nous serons heureux de répondre à
+                        toutes vos questions.</p>
+                        <a href="mailto:contact@example.com" class="read-more">
+                            <p style="color: #2aabb0">
+                                contact@ecoach.ma
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <div class="card border-0 text-center features feature-primary feature-clean">
+                    <div class="icons text-center mx-auto">
+                        <i class="uil uil-map-marker d-block rounded h3 mb-0" style="background-color: #2aabb0; color:#fff"></i>
+                    </div>
+                    <div class="content mt-4">
+                        <h5 class="fw-bold">Localisation</h5>
+                        <p class="text-muted">Rue des Oliviers, Quartier Al Amal, Casablanca, 20000, Maroc</p>
+                        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
+                            data-type="iframe" class="video-play-icon read-more lightbox">Voir sur Google Maps</a>
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container mt-100 mt-60">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6 pt-2 pt-sm-0 order-2 order-md-1">
+                <div class="card shadow rounded border-0">
+                    <div class="card-body py-5">
+                        <h4 class="card-title">Prenez contact avec nous !</h4>
+                        <div class="custom-form mt-3">
+                            <form method="post" name="myForm" id="myForm" onsubmit="return validateForm()">
+                                <p id="error-msg" class="mb-0"></p>
+                                <div id="simple-msg"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Votre nom <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
+                                                <i data-feather="user" class="fea icon-sm icons"></i>
+                                                <input name="name" id="name" type="text" class="form-control ps-5"
+                                                    placeholder="nom :">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Votre E-mail <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
+                                                <i data-feather="mail" class="fea icon-sm icons"></i>
+                                                <input name="email" id="email" type="email" class="form-control ps-5"
+                                                    placeholder="E-mail :">
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Objet</label>
+                                            <div class="form-icon position-relative">
+                                                <i data-feather="book" class="fea icon-sm icons"></i>
+                                                <input name="subject" id="subject" class="form-control ps-5"
+                                                    placeholder="Objet :">
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Message <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
+                                                <i data-feather="message-circle" class="fea icon-sm icons clearfix"></i>
+                                                <textarea name="comments" id="comments" rows="4"
+                                                    class="form-control ps-5" placeholder="Message :"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button type="submit" id="submit" name="send" class="btn disabled" style="background-color: #2aabb0; color: #fff">Envoyer</button>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </form>
+                        </div><!--end custom-form-->
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-7 col-md-6 order-1 order-md-2">
+                <div class="card border-0">
+                    <div class="card-body p-0">
+                        <img src="assets/images/contact.svg" style="color:#2aabb0" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container-fluid mt-100 mt-60">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="card map border-0">
+                    <div class="card-body p-0">
+                    <div id='mapouter' style='position:relative;text-align:center;width:100%; height:500px;'>
+                        <div style='overflow:hidden;background:none!important;width:100%; height:500px;' id='gmap_canvasid'><iframe
+                                style='width:100%; height:500px;' id='gmap_canvas'
+                                src='https://maps.google.com/maps?q=casablanca&t=&z=13&ie=UTF8&output=embed' frameborder='0' scrolling='no'
+                                marginheight='0' marginwidth='0'></iframe><br></div>
+                    </div>
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- End contact -->
+{% endblock body %}

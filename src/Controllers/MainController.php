@@ -28,7 +28,18 @@ class MainController extends Controller
                             ->get()
                             ->toArray();
 
-        $this->render('Home/index', compact('coachs'));
+        $avis = Avis::with('seance', 'seance.client.utilisateur')
+                    ->take(6)
+                    ->get()
+                    ->toArray();
+
+        if($coachs != null && $avis != null){
+            $this->render('Home/index', compact('coachs', 'avis'));
+        }else{
+            
+            header("Location: /404", 404);
+        }
+
     }
 
    /**
@@ -107,4 +118,20 @@ class MainController extends Controller
     {
         $this->render('Guest/passwordreset');
     }
+
+     /**
+     *
+     * Store a newly created resource in storage
+     * @param array $params
+     * @param array $post
+     * @return void
+     *
+     */
+    public function contact(array $params = [], array $post = [])
+    {
+        $this->render('Home/contact');
+    }
+
+
+
 }
