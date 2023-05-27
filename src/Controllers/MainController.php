@@ -27,8 +27,14 @@ class MainController extends Controller
                             ->take(4)
                             ->get()
                             ->toArray();
+
+        $avis = Avis::with('seance', 'seance.client.utilisateur')
+                    ->take(6)
+                    ->get()
+                    ->toArray();
+
         if($coachs != null){
-            $this->render('Home/index', compact('coachs'));
+            $this->render('Home/index', compact('coachs', 'avis'));
         }else{
             
             header("Location: /404", 404);
