@@ -97,7 +97,7 @@ class Seed
         $clients = Client::all();
         $coachs = Coach::all();
         $i = 1;
-        for ($i = 1; $i <= 30; $i++) {
+        for ($i = 1; $i <= 80; $i++) {
             $seance = new Seance();
             $seance->id = $i;
             $seance->id_coach = $faker->randomElement($coachs)->id_utilisateur;
@@ -112,20 +112,8 @@ class Seed
             $seance->save();
         }
 
-        // Création des paiements
+      
         $seances = Seance::all();
-        $i = 1;
-        foreach ($seances as $seance) {
-            $paiement = new Paiement();
-            $paiement->id = $i;
-            $paiement->id_utilisateur = $seance->id_client;
-            $paiement->id_seance = $seance->id;
-            $paiement->date_paiement = $faker->dateTimeBetween($seance->date_heure, '+1 years');
-            $paiement->montant = $seance->tarif;
-            $paiement->save();
-            $i++;
-        }
-
         // Création des avis
         $i = 1;
         foreach ($seances as $seance) {
