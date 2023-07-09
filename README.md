@@ -1,5 +1,30 @@
 # E-coach-App
+![Logo](./Assets/logo.png)
+[![GitHub issues](https://img.shields.io/github/issues/Julienawonga/e-coach-app)]
+![GitHub top language](https://img.shields.io/github/languages/top/Julienawonga/e-coach-app)
+![GitHub](https://img.shields.io/github/license/Julienawonga/e-coach-app)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Julienawonga/e-coach-app)
+![GitHub repo size](https://img.shields.io/github/repo-size/Julienawonga/e-coach-app)
+![GitHub contributors](https://img.shields.io/github/contributors/Julienawonga/e-coach-app)
+![GitHub stars](https://img.shields.io/github/stars/Julienawonga/e-coach-app?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Julienawonga/e-coach-app?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/Julienawonga?style=social)
+
+E-coach-app is a web application for e-coaching, providing online coaching services. Our main objective was to create a user-friendly platform that allows users to find coaches tailored to their specific needs and benefit from remote coaching sessions.
 # Table of Contents
+- [E-coach-App](#e-coach-app)
+- [Table of Contents](#table-of-contents)
+- [Screenshots](#screenshots)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Architecture](#architecture)
+- [License](#license)
+- [Credits](#credits)
+- [Contributing](#contributing)
+# Screenshots
+- Home Page
+ ![Home Page](./Assets/Acceuil.png) 
 # Description
  We have developed an innovative web application for e-coaching, providing online coaching services. Our main objective was to create a user-friendly platform that allows users to find coaches tailored to their specific needs and benefit from remote coaching sessions.
 The key features of our application include user registration, coach search and selection, coach-ing session booking, progress tracking, and review submission.
@@ -17,7 +42,20 @@ $ composer install
 $ php -S localhost:8000 -t public
 ```
 # Usage
+You can access the application by typing the following url in your browser: http://localhost:8000
+# Architecture
+- MVC
+![MVC](./Assets/mvc.png)
+- Cloud
+![Cloud](./Assets/cloud.png)
 # License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 # Credits
+This project was developed by:
+- [Julien AWON'GA](www.linkedin.com/in/julienaonga)
+- [Tresor ADOSSI](https://www.linkedin.com/in/tresor-adossi-0b1b3a1b0/)
+- [Nisrine RANE](https://www.linkedin.com/in/nisrine-rane-9b1b3a1b0/)
+- [Asmae EL BOUKHSSEMI](https://www.linkedin.com/in/asmae-el-boukhssimi-9b1b3a1b0/)
 # Contributing
+This project is open source. Feel free to contribute to its development by forking it.
 
