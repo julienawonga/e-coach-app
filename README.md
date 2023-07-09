@@ -1,5 +1,8 @@
 # E-coach-App
+<div style="text-align: center;">
 ![Logo](./Assets/logo.png)
+</div>
+---
 [![GitHub issues](https://img.shields.io/github/issues/Julienawonga/e-coach-app)]
 ![GitHub top language](https://img.shields.io/github/languages/top/Julienawonga/e-coach-app)
 ![GitHub](https://img.shields.io/github/license/Julienawonga/e-coach-app)
@@ -13,6 +16,7 @@
 E-coach-app is a web application for e-coaching, providing online coaching services. Our main objective was to create a user-friendly platform that allows users to find coaches tailored to their specific needs and benefit from remote coaching sessions.
 # Table of Contents
 - [E-coach-App](#e-coach-app)
+  - [](#)
 - [Table of Contents](#table-of-contents)
 - [Screenshots](#screenshots)
 - [Description](#description)
