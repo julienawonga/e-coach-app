@@ -50,9 +50,9 @@ $ php -S localhost:8000 -t public
 # Usage
 You can access the application by typing the following url in your browser: http://localhost:8000
 # Architecture
-- MVC
+ MVC
 ![MVC](./Assets/mvc.png)
-- Cloud
+ Cloud
 ![Cloud](./Assets/cloud.png)
 # License
 This project is licensed under the MIT License - see the LICENSE.md file for details
