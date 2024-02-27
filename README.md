@@ -4,7 +4,7 @@
 ![Logo](./Assets/logo.png)
 
 </div>
-
+ 
 ---
 [![GitHub issues](https://img.shields.io/github/issues/Julienawonga/e-coach-app)]
 ![GitHub top language](https://img.shields.io/github/languages/top/Julienawonga/e-coach-app)
