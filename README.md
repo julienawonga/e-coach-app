@@ -2,9 +2,8 @@
 <div style="text-align: center;">
 
 ![Logo](./Assets/logo.png)
-
 </div>
-
+ 
 ---
 [![GitHub issues](https://img.shields.io/github/issues/Julienawonga/e-coach-app)]
 ![GitHub top language](https://img.shields.io/github/languages/top/Julienawonga/e-coach-app)
@@ -64,4 +63,3 @@ This project was developed by:
 - [Asmae EL BOUKHSSEMI](https://www.linkedin.com/in/asmae-el-boukhssimi-9b1b3a1b0/)
 # Contributing
 This project is open source. Feel free to contribute to its development by forking it.
-
