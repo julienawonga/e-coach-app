@@ -2,7 +2,6 @@
 <div style="text-align: center;">
 
 ![Logo](./Assets/logo.png)
-
 </div>
  
 ---
@@ -64,4 +63,3 @@ This project was developed by:
 - [Asmae EL BOUKHSSEMI](https://www.linkedin.com/in/asmae-el-boukhssimi-9b1b3a1b0/)
 # Contributing
 This project is open source. Feel free to contribute to its development by forking it.
-
