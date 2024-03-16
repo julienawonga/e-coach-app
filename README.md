@@ -17,7 +17,7 @@
 ![Twitter Follow](https://img.shields.io/twitter/follow/Julienawonga?style=social)
 
 E-coach-app is a web application for e-coaching, providing online coaching services. Our main objective was to create a user-friendly platform that allows users to find coaches tailored to their specific needs and benefit from remote coaching sessions.
-# Table of Contents 
+# Table of Contents  
 - [E-coach-App](#e-coach-app)
 - [Table of Contents](#table-of-contents)
 - [Screenshots](#screenshots)
